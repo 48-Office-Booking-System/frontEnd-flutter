@@ -1,0 +1,82 @@
+commit 94e0ec60408366f7f12673fb7f5f4f03941e4f43
+Author: MacharaniRaschintasofi <macharaniras.smkn4jbi@gmail.com>
+Date:   Sun Feb 20 17:21:15 2022 +0700
+
+    update
+
+commit c280ac7be28719fc0aa3e945696fd9ab412431f9
+Merge: fabfa7c a985142
+Author: MacharaniRaschintasofi <macharaniras.smkn4jbi@gmail.com>
+Date:   Sun Feb 20 17:18:54 2022 +0700
+
+    Merge branch 'master' of https://github.com/MacharaniRaschintasofi/Flutter_Macharani-Raschintasofi
+
+commit fabfa7c1a798a99984cc49e5c3124053defd25d9
+Author: MacharaniRaschintasofi <macharaniras.smkn4jbi@gmail.com>
+Date:   Sun Feb 20 17:13:11 2022 +0700
+
+    coba stash
+
+commit a985142a651a3b65da4c7d3a1bae24d1e3492b89
+Merge: ebb30e6 71be656
+Author: Macharani Raschintasofi <99674530+MacharaniRaschintasofi@users.noreply.github.com>
+Date:   Sun Feb 20 17:05:42 2022 +0700
+
+    Merge pull request #3 from MacharaniRaschintasofi/featureB
+    
+    edit hello_worlddd
+
+commit 71be656fa081a276e8cca470fb5edf8f2c806518
+Merge: f71d62a ebb30e6
+Author: Macharani Raschintasofi <99674530+MacharaniRaschintasofi@users.noreply.github.com>
+Date:   Sun Feb 20 17:05:15 2022 +0700
+
+    Merge branch 'master' into featureB
+
+commit ebb30e683ce657157242d58a9d79f1f1d2ca2182
+Merge: 79b8b9b 30329db
+Author: Macharani Raschintasofi <99674530+MacharaniRaschintasofi@users.noreply.github.com>
+Date:   Sun Feb 20 17:02:42 2022 +0700
+
+    Merge pull request #2 from MacharaniRaschintasofi/featureA
+    
+    edit hello_worldd.py
+
+commit 79b8b9b35ce47c3b5470fa30d61f2ab0a25e321f
+Merge: 063d3e3 cb4f054
+Author: Macharani Raschintasofi <99674530+MacharaniRaschintasofi@users.noreply.github.com>
+Date:   Sun Feb 20 17:02:10 2022 +0700
+
+    Merge pull request #1 from MacharaniRaschintasofi/development
+    
+    create hello_world.py
+
+commit f71d62a209c654ee8dbcb0650fb58f34f4a71b68
+Author: MacharaniRaschintasofi <macharaniras.smkn4jbi@gmail.com>
+Date:   Sun Feb 20 17:01:13 2022 +0700
+
+    edit hello_worlddd
+
+commit 30329db1f097da36545d7079e14e79da8e151c9a
+Author: MacharaniRaschintasofi <macharaniras.smkn4jbi@gmail.com>
+Date:   Sun Feb 20 16:59:41 2022 +0700
+
+    edit hello_worldd.py
+
+commit cb4f054f8ba2cd5685c8f0629d19596663448d36
+Author: MacharaniRaschintasofi <macharaniras.smkn4jbi@gmail.com>
+Date:   Sun Feb 20 16:54:03 2022 +0700
+
+    create hello_world.py
+
+commit 063d3e3880dceeeb0d173243f22e070cda31f6d9
+Author: MacharaniRaschintasofi <macharaniras.smkn4jbi@gmail.com>
+Date:   Sun Feb 20 16:47:46 2022 +0700
+
+    init
+
+commit 770cc88dc6da37dae4be45600a9147738e2db0c1
+Author: Macharani Raschintasofi <99674530+MacharaniRaschintasofi@users.noreply.github.com>
+Date:   Fri Feb 18 12:44:32 2022 +0700
+
+    Initial commit
