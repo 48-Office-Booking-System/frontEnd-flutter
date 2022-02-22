@@ -37,4 +37,19 @@ Pada task ini , diminta peserta didik untuk membuat sebuah repository pada GitHu
 
 Adapun hasil dari pratikum ini :
 
-![tes](./screenshots2/104.png)
+[pratikum](./2_Basic Version and Branch Management/pratikum.md)
+[pratikum](./Flutter_Macharani-Raschintasofi/log.txt)
+
+proses to progres
+![1.](./screenshots2/101.png)
+![2.](./screenshots2/102.png)
+![3.](./screenshots2/105.png)
+![4.](./screenshots2/106.png)
+![5.](./screenshots2/107.png)
+![6.](./screenshots2/108.png)
+![7.](./screenshots2/109.png)
+![8.](./screenshots2/110.png)
+![9.](./screenshots2/111.png)
+![10.](./screenshots2/112.png)
+![11.](./screenshots2/113.png)
+![12.](./screenshots2/114.png)
