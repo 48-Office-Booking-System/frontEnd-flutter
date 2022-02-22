@@ -32,7 +32,7 @@ Kelas : D
    Checkout _nama_ = kembali ke commit sebelumnya atau yang dituju , atau untuk pindah branch/versi
 
 TASK PRATIKUM
-Pada task ini , diminta peserta didik untuk membuat sebuah repository pada GitHub yang mengimplementasikan penggunaan branching , intuksi push , pull ,stash,dan merge ,penanganan conflict di branch development serta penggunaan merge no fast forwrd
+Pada task ini , diminta peserta didik untuk membuat sebuah repository pada GitHub yang mengimplementasikan penggunaan branching , intuksi push , pull ,stash,dan merge ,penanganan conflict di branch development serta penggunSSaan merge no fast forwrd
 
 Adapun hasil dari pratikum ini :
-![text](<./screenshots2/Screenshot(108).png>)
+![git](<./screenshots2/Screenshot(108).png>)
