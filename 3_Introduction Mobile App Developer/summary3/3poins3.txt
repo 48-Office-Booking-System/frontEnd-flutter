@@ -1,0 +1,23 @@
+Nama		: Macharani Raschintasofi 
+Kelas		: D
+
+1. Mobile App Development 
+Merupakan suatu proses pengembangan aplikasi yang berjalan di perangkat mobile .
+Dimulai dari design , pembuatan , testing , hingga launching . 
+
+2. Software 
+Perangkat lunak yang tersimpan dan di kendalikan pada sistem komputer , terbentuk dari intruksi yang terornaisir
+agar software dapat digunakan tergantung tujuan penggunanya 
+
+3.Jenis Software 
+- Web (Sebuah halaman yang menyediakan informasi seperti gambar , video , audio , tulisan yang bisa diakses melalui web browser.
+Memerlukan internet untuk membukanya)
+-Desktop (Perlu langkah instalasi sebelum digunakan ,dapat berjalan pada pc / laptop dapat dibuka tanpa memerlukan internet )
+-Mobile (Perlu langkah instalasi , berjalan pada smartphone maupun tablet , dapat melalui internet ataupun tidak)
+
+Bahasa pemograman merupakan rangkaian teks yang digunakan untuk memberikan perintah pada komputer ( c++,php, ruby,java ,dll) 
+Developer memerlukan banyak software di platform yang berbeda
+
+2 cara menerjemahkan source code kedalam bahasa mesin : 
+1. Compiler 
+2.Interpreter
