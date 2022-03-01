@@ -1,5 +1,5 @@
 void main(){
-  var i = 0;
+  var i = 1;
   do{
     print(i);
     i++;
