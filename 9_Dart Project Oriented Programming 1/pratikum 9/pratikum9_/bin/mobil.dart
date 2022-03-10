@@ -1,7 +1,7 @@
 import 'hewan.dart';
 
 class Mobil {
-  int kapasitas = 7;
+  int kapasitas = 4;
   List<Hewan> hewans = [];
 
   void tambahMuatan(Hewan hewan) {

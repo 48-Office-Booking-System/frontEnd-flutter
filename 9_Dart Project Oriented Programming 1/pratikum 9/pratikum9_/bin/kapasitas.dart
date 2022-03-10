@@ -10,7 +10,7 @@ void main() {
   mobil.tambahMuatan(hewan);
   mobil.tambahMuatan(hewan);
   mobil.tambahMuatan(hewan);
-  mobil.tambahMuatan(hewan);
+ 
 
   mobil.totalMuatan();
 }
