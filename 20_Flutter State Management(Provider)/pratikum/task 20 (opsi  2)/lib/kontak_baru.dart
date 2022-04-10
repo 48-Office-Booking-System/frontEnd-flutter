@@ -74,11 +74,6 @@ class _KontakBaruState extends State<KontakBaru> {
               ElevatedButton(
                 onPressed: () {},
                 child: const Text("Done"),
-                //untuk membuat sudut button bulat
-                // style: ElevatedButton.styleFrom(
-                //   fixedSize: Size(300, 100),
-                //   shape: RoundedRectangleBorder(
-                //     borderRadius: BorderRadius.circular(50),
                 //   ),
                 // ),
               ),
