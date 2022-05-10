@@ -11,6 +11,7 @@ class Home extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Beranda'),
+        backgroundColor: Colors.purple,
         centerTitle: true,
       ),
       body: FutureBuilder<List<Surah>>(
@@ -33,6 +34,7 @@ class Home extends GetView<HomeController> {
               return ListTile(
                 onTap: () {},
                 leading: CircleAvatar(
+                  backgroundColor: Colors.purple,
                   child: Text("${surah.number}"),
                 ),
                 title: Text("${surah.name?.transliteration?.id ?? 'Error..'}"),

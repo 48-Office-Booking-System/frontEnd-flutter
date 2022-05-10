@@ -16,8 +16,8 @@ class IntroductionView extends GetView<IntroductionController> {
             Text(
               "QUBA ",
               style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
+                fontSize: 80,
+                fontFamily: 'Macondo',
               ),
             ),
             SizedBox(height: 20),
@@ -43,6 +43,10 @@ class IntroductionView extends GetView<IntroductionController> {
             ),
             SizedBox(height: 30),
             ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Colors.purple),
+              ),
               onPressed: () => Get.offAllNamed(Routes.HOME),
               child: Text("Mulai dengan Bismillah"),
             ),
