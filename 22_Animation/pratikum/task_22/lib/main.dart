@@ -30,17 +30,22 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Tugas Section 22',
       initialRoute: Kontak.route,
-      routes: {
-        Kontak.route: (context) => Kontak(),
-        TambahKontak.route: (context) => TambahKontak(),
-        // Detail.route: (context) => Detail(),
-        // KontakBaru.route: (context) => KontakBaru(),
-        Jawaban.route: (context) => Jawaban()
-      },
+      // routes: {
+      //   Kontak.route: (context) => Kontak(),
+      //   TambahKontak.route: (context) => TambahKontak(),
+      //   // Detail.route: (context) => Detail(),
+      //   // KontakBaru.route: (context) => KontakBaru(),
+      //   Jawaban.route: (context) => Jawaban()
+      // },
       onGenerateRoute: (setting) {
         switch (setting.name) {
           case Jawaban.route:
             return routeBuilder(Jawaban(), setting);
+          case Kontak.route:
+            return  routeBuilder(Kontak(), setting);
+          case TambahKontak.route:
+            return routeBuilder(TambahKontak(), setting);
+          
           default:
             return routeBuilder(Detail(), setting);
         }

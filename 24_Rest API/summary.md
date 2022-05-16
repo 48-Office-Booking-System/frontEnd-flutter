@@ -7,7 +7,7 @@ Jembatan antara server dengan client
 yang memisahkan tampilan dengan proses bisnis . Bagian tampilan dengan proses bisnis berkirim data melalui http request
 
 HTTP
-Protokol yang digunakan untuk berkirim dazta pada internet , yang biasa data tersebut berbentuk media web.
+Protokol yang digunakan untuk berkirim data pada internet , yang biasa data tersebut berbentuk media web.
 -Client mengiris request
 -Server mengolah dan membalas dengan memberi response yang nantinya akan ditampilkan pada aplikasi
 
@@ -37,3 +37,4 @@ melakukan serialisasi menggunakan fungsi jsonEncode dari package dart:convert
 
 Deserelisasi JSON
 -Mengubah bentuk JSON ke struktur data (contoh JSON-seri-Map)
+json decode

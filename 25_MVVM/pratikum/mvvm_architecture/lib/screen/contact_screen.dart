@@ -15,7 +15,7 @@ class _ContactScreenState extends State<ContactScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
-      Provider.of<ContactViewModel>(context, listen: false).getAllContacts();
+      Provider.of<ContactViewModel>(context, listen: false).getAllContacts;
     });
   }
 

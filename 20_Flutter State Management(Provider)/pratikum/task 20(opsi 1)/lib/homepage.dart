@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:materi_contact/model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:materi_contact/stores/contact.dart' show Contact;
 import 'package:provider/provider.dart';
 import 'package:materi_contact/stores/contact.dart'as contact_stores;
@@ -11,16 +12,43 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String name ='';
-  String phoneNumber ='';
-  var nameController =TextEditingController();
-  var phoneNumberController = TextEditingController();
-  var formKey=GlobalKey<FormState>();
+  late SharedPreferences nama;
+  String nomorHp = '';
+
+  String _name ='';
+  String _phoneNumber ='';
+  final formKey=GlobalKey<FormState>();
+  final _nameController =TextEditingController();
+  final _phoneNumberController = TextEditingController();
+  
+  late SharedPreferences _nama;
+  late bool _nomorHp;
+
+  bool get isValidForm => true;
+
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    checkNama();
+  }
+  void checkNama()async{
+    nama= await SharedPreferences.getInstance();
+    nomorHp = (nama.getBool('kontak')??true) as String;
+
+    if(nomorHp == false){
+      Navigator.pushAndRemoveUntil(
+        context, MaterialPageRoute(
+          builder: (context)=> const HomePage(),
+          ), 
+          (route) => false);
+    }
+  }
 
   @override
   void dispose() {
-    nameController.dispose();
-    phoneNumberController.dispose();
+    _nameController.dispose();
+    _phoneNumberController.dispose();
     super.dispose();
   }
   @override
@@ -33,27 +61,35 @@ class _HomePageState extends State<HomePage> {
       body:Form(key:formKey,
       child: Column(
         children: [
-          TextField(
-            controller: nameController ,
+          const Text ('Create New Contact'),
+          const SizedBox(height : 20),
+          TextFormField(
+            controller: _nameController ,
             onChanged: (String value){
-              name=value;
+              _name=value;
             },
           ),
-           TextField(
-            controller: phoneNumberController ,
+           TextFormField(
+            controller: _phoneNumberController ,
             onChanged: (String value){
-              phoneNumber=value;
+              _phoneNumber=value;
             },
           ),
           ElevatedButton(
             onPressed: (){
-              if(!formKey.currentState!.validate())
-              return;
+              nama.setBool('nama',true);
+              nama.remove('nomorHp');
+              
+              if (isValidForm){
+                nama.setBool('nama', false);
+                nama.setString('nomorHp', _phoneNumber);
+              }
+              // return;
 
             formKey.currentState!.save();
             contactProvider.add(GetContact(
-              name: name,
-              phoneNumber: phoneNumber,
+              name: _name,
+              phoneNumber: _phoneNumber,
               ),
               );
             }, 

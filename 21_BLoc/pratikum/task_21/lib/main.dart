@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:faker/faker.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:task_21/counter.dart';
 
 void main() {
@@ -13,6 +14,7 @@ const String kontakBaru = "/kontakBaru";
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+  
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +22,15 @@ class MyApp extends StatelessWidget {
       create: (context) => CounterBloc(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Tugas Live Section 21',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
+        title: 'BLOC to SharedPreference',
         routes: {
           kontak: (_) => const Kontak(),
           kontakBaru: (_) => KontakBaru(),
         },
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        
         initialRoute: kontak,
       ),
     );
@@ -36,10 +39,27 @@ class MyApp extends StatelessWidget {
 
 class Kontak extends StatelessWidget {
   const Kontak({Key? key}) : super(key: key);
-
+  
   @override
   Widget build(BuildContext context) {
     final Faker faker = Faker();
+
+    late SharedPreferences kontak;
+    late bool newContact;
+
+    void checkNomor()async{
+      kontak = await SharedPreferences.getInstance();
+      newContact = kontak.getBool('kontak')??true;
+
+      if(newContact==false){
+        Navigator.pushAndRemoveUntil(
+         context,
+         MaterialPageRoute(
+           builder: (context) => const Kontak(),
+         ),
+         (route) => false);
+      }
+      }
 
     return Scaffold(
       appBar: AppBar(
@@ -76,9 +96,10 @@ class Kontak extends StatelessWidget {
 // ignore: must_be_immutable
 class KontakBaru extends StatelessWidget {
   KontakBaru({Key? key}) : super(key: key);
+  
   // tampung nilai
-  TextEditingController inputNama = TextEditingController();
-  TextEditingController inputHp = TextEditingController();
+  TextEditingController _inputNama = TextEditingController();
+  TextEditingController _inputHp = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +112,7 @@ class KontakBaru extends StatelessWidget {
         children: [
           TextFormField(
             // untuk pasang variabel yang akan digunakan
-            controller: inputNama,
+            controller: _inputNama,
             decoration: const InputDecoration(
               label: Text("Nama"),
               border: OutlineInputBorder(
@@ -102,7 +123,7 @@ class KontakBaru extends StatelessWidget {
             ),
           ),
           TextFormField(
-            controller: inputHp,
+            controller: _inputHp,
             decoration: const InputDecoration(
               label: Text("Nomor HP"),
               border: OutlineInputBorder(
@@ -118,14 +139,15 @@ class KontakBaru extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
+              
               showDialog(
                   context: context,
                   builder: (samting) {
                     return AlertDialog(
                       content: Column(
                         children: [
-                          Text("Nama     : ${inputNama.text}"),
-                          Text("Nomor Hp : ${inputHp.text}"),
+                          Text("Nama     : ${_inputNama.text}"),
+                          Text("Nomor Hp : ${_inputHp.text}"),
                         ],
                       ),
                     );

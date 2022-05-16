@@ -36,10 +36,9 @@ class HomeScreen extends StatelessWidget {
             backgroundColor: Colors.deepPurple,
             label: Text('BADGE', style: TextStyle(color: Colors.white)),
           ),
-
-          //menambahkan spasi berbentuk garis pada chip dan badge
-          //Divider(),
-
+          const SizedBox(
+            height : 20,
+          ),
           Badge(
             //toAnimate: false,
             padding: const EdgeInsets.all(10),

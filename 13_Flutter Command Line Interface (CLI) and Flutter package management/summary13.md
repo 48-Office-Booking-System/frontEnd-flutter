@@ -20,10 +20,11 @@ _Important CLI Commands_
 
 6. Flutter Pub :
 
-- Flutter Pub Add
+- Flutter Pub Add : tempat untuk menaruh semua library yang digunakan
+  =>
   -Flutter Pub Get
 
-7. Flutter Build : Perintah untuk memproduksi sebuah file aplikasi untuk keperluan deploy atau pubish ke AppStore , PlayStore ,dll
+7. Flutter Build : Perintah untuk memproduksi sebuah file aplikasi untuk keperluan deploy atau publish ke AppStore , PlayStore ,dll
 
 8. Flutter Clean : Perintah menghapus folder build serta file launnya yang dihasilkan saat kita menjalankan aplikasi di emulator , dan akan memperkecil ukuran project tersebut
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'new.dart';
+
 class Detail extends StatefulWidget {
   // Detail({Key? key, required this.image, required this.tagName})
   //     : super(key: key);
@@ -8,6 +10,8 @@ class Detail extends StatefulWidget {
   // final String tagName;
 
   static const String route = '/detail';
+
+  const Detail({Key? key}) : super(key: key);
 
   @override
   State<Detail> createState() => _DetailState();
@@ -72,6 +76,12 @@ class _DetailState extends State<Detail> {
               });
             },
             child: Text('Toggle Image'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+             Navigator.pushNamed(context, Baru.route);
+            },
+            child: Text('NewPage'),
           )
         ],
       ),

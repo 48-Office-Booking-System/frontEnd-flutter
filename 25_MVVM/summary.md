@@ -90,4 +90,19 @@ notifyListeners();
 Mendaftarkan ViewModel
 
 - Menggunakan MultiProvider agar dapat digunakan banyak provider
-  -Material App sebagai child utama
+- Material App sebagai child utama
+
+contoh :
+runApp(
+MultiProvider(
+providers :[
+ChangeNotifierProvider(
+create : (_)=>ContactViewModel(),
+)
+],
+child : const MaterialApp(
+debugShowCheckedModeBanner : false,
+home : ContactScreen(),
+),
+),
+);

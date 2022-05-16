@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:faker/faker.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cobagridlist/detail.dart';
+import 'package:cobagridlist/new.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,14 +34,16 @@ class MyApp extends StatelessWidget {
       ),
       // home: const MyHomePage(),
       initialRoute: MyHomePage.route,
-      routes: {
-        Detail.route: (context) => Detail(),
-        MyHomePage.route: (context) => MyHomePage(),
-      },
+      // routes: {
+      //   Detail.route: (context) => Detail(),
+      //   MyHomePage.route: (context) => MyHomePage(),
+      // },
       onGenerateRoute: (set) {
         switch (set.name) {
           case Detail.route:
             return routeBuilder(Detail(), set);
+          case Baru.route:
+            return routeBuilder(Baru(), set);
           default:
             return routeBuilder(MyHomePage(), set);
         }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class KontakBaru extends StatefulWidget {
+class KontakBaru extends StfatefulWidget {
   const KontakBaru({Key? key}) : super(key: key);
 
   @override
