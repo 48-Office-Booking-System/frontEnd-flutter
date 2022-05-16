@@ -50,7 +50,7 @@ Container LoginRegisterButton(
         onTap();
       },
       child: Text(
-        isLogin ? 'LOGIN' : 'LOG IN',
+        isLogin ? 'LOGIN' : 'REGISTER',
         //title,
         style: const TextStyle(
             color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 16),

@@ -1,13 +1,8 @@
-import 'dart:html';
-import 'dart:ui';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:quba_mp/screen/home_screen.dart';
 import 'package:quba_mp/screen/regist_screen.dart';
-import 'package:quba_mp/screen/reset_screen.dart';
 import 'package:quba_mp/utils/color_utils.dart';
-
+import 'package:quba_mp/screen/introduction_screen.dart';
 import '../reusable_widget/reusable_widget.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -59,10 +54,21 @@ class _LoginScreenState extends State<LoginScreen> {
                               .text, //macharaniras.smkn4jbi@gmail.com , pw : sofi123
                           password: _passwordTextController.text)
                       .then((value) {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: ((context) => const HomeScreen())));
+                    // Navigator.of(context).pushNamed('/welcome');
+                    Navigator.of(context).push(PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) {
+                          return const IntroductionScreen();
+                        },
+                        transitionDuration: Duration(milliseconds: 1500),
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                          final tween = Tween(
+                              begin: const Offset(0, 5), end: Offset.zero);
+                          return SlideTransition(
+                            position: animation.drive(tween),
+                            child: child,
+                          );
+                        }));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
                   });
@@ -84,8 +90,21 @@ class _LoginScreenState extends State<LoginScreen> {
             style: TextStyle(color: Colors.white70)),
         GestureDetector(
           onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const RegistScreen()));
+            // Navigator.of(context).pushNamed('/register');
+            Navigator.of(context).push(PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) {
+                  return const RegistScreen();
+                },
+                transitionDuration: Duration(milliseconds: 1500),
+                transitionsBuilder:
+                    (context, animation, secondaryAnimation, child) {
+                  final tween =
+                      Tween(begin: const Offset(5, 0), end: Offset.zero);
+                  return SlideTransition(
+                    position: animation.drive(tween),
+                    child: child,
+                  );
+                }));
           },
           child: const Text(
             " Register",
@@ -93,23 +112,6 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         )
       ],
-    );
-  }
-
-  Widget forgetPassword(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 35,
-      alignment: Alignment.bottomRight,
-      child: TextButton(
-        child: const Text(
-          "Forgot Password?",
-          style: TextStyle(color: Colors.white70),
-          textAlign: TextAlign.right,
-        ),
-        onPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ResetPassword())),
-      ),
     );
   }
 }
