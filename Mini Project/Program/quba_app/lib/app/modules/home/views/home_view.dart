@@ -5,7 +5,9 @@ import 'package:get/get.dart';
 
 import '../controllers/home_controller.dart';
 
-class Home extends GetView<HomeController> {
+class Home extends GetxController {
+  get controller => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

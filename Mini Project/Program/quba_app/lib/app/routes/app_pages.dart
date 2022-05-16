@@ -15,7 +15,7 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.HOME,
-      page: () => Home(),
+      page: () => HomeView(),
       binding: HomeBinding(),
     ),
     GetPage(
@@ -23,5 +23,11 @@ class AppPages {
       page: () => IntroductionView(),
       binding: IntroductionBinding(),
     ),
+    GetPage(
+      name: _Paths.DETAIL_SURAH,
+      page: () => DetailSurahView(),
+      binding: DetailSurahBinding(),
+    ),
   ];
 }
+

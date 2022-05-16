@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:quba_mp/screen/login_screen.dart';
 
@@ -14,10 +15,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Center(
         child: ElevatedButton(
-          child: Text("Logout"),
+          child: const Text("Logout"),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => LoginScreen()));
+            FirebaseAuth.instance.signOut().then((value) {
+              print("Registrasi");
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const LoginScreen()));
+            });
           },
         ),
       ),
