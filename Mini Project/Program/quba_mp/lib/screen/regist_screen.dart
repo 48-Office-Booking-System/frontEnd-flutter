@@ -6,6 +6,7 @@ import 'package:quba_mp/screen/login_screen.dart';
 
 import '../utils/color_utils.dart';
 
+//form
 class RegistScreen extends StatefulWidget {
   const RegistScreen({Key? key}) : super(key: key);
 
@@ -69,15 +70,15 @@ class _RegistScreenState extends State<RegistScreen> {
                       .then((value) {
                     print("Created New Account");
                     // Navigator.of(context).pushNamed('/login');
-                    Navigator.of(context).push(
-                        PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) {
+                    Navigator.of(context).push(PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) {
                           return const LoginScreen();
-                        }, transitionDuration: Duration(milliseconds: 1500),
+                        },
+                        transitionDuration: Duration(milliseconds: 1500),
                         transitionsBuilder:
-                                (context, animation, secondaryAnimation, child) {
-                          final tween =
-                              Tween(begin: const Offset(-5, 0), end: Offset.zero);
+                            (context, animation, secondaryAnimation, child) {
+                          final tween = Tween(
+                              begin: const Offset(-5, 0), end: Offset.zero);
                           return SlideTransition(
                             position: animation.drive(tween),
                             child: child,

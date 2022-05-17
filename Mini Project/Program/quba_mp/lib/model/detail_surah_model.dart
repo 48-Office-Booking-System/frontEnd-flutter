@@ -8,6 +8,7 @@
 
 // String detailSurahToJson(DetailSurah data) => json.encode(data.toJson());
 
+//belum digunakan karena masih eror
 class DetailSurah {
   // int? code;
   // String? status;
@@ -110,7 +111,7 @@ class Data {
     this.tafsir,
     this.preBismillah,
     this.verses,
-      });
+  });
 
   Data.fromJson(Map<String, dynamic> json) {
     number = json["number"];
