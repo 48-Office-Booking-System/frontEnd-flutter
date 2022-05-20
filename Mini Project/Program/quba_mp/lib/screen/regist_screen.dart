@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:quba_mp/reusable_widget/reusable_widget.dart';
-import 'package:quba_mp/screen/home_screen.dart';
+// import 'package:quba_mp/screen/home_screen.dart';
 import 'package:quba_mp/screen/login_screen.dart';
 
 import '../utils/color_utils.dart';

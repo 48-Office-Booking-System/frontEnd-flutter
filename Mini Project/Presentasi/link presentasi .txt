@@ -1,2 +1,8 @@
 https://www.canva.com/design/DAFA5hrBPhU/FHyFqdF9EJeHgKFRnzqlbQ/view?utm_content=DAFA5hrBPhU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
+
+- Maharani
+    - Pesan error Fitur login & register
+    - Fitur login & register msh blm work properly
+
+
