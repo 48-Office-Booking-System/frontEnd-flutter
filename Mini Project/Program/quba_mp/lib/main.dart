@@ -9,11 +9,18 @@ import 'screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:quba_mp/view_model/home_view_model.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  FirebaseAuth.instance.authStateChanges().listen((User? user) {
+    if (user == null) {
+      runApp(MyApp());
+    } else {
+      runApp(MyAppLoggedIn());
+    }
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -33,6 +40,36 @@ class MyApp extends StatelessWidget {
               primarySwatch: Colors.deepPurple,
             ),
             home: const LoginScreen(),
+            // initialRoute: '/login',
+            // routes: {
+            //   '/': (_) => const HomePage(),
+            //   '/login': (_) => const LoginScreen(),
+            //   '/register': (_) => const RegistScreen(),
+            //   '/welcome': (_) => const IntroductionScreen(),
+            //   '/detail': (_) => DetailPage(),
+            // },
+          ),
+        ));
+  }
+}
+
+class MyAppLoggedIn extends StatelessWidget {
+  const MyAppLoggedIn({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider<HomeViewModel>(
+        create: (context) => HomeViewModel(),
+        child: ChangeNotifierProvider<DetailViewModel>(
+          create: (context) => DetailViewModel(),
+          child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'QUBA',
+            theme: ThemeData(
+              primarySwatch: Colors.deepPurple,
+            ),
+            home: IntroductionScreen(),
             // initialRoute: '/login',
             // routes: {
             //   '/': (_) => const HomePage(),

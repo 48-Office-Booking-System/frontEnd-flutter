@@ -70,7 +70,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           );
                         }));
                   }).onError((error, stackTrace) {
-                    print("Error ${error.toString()}");
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text("${error.toString()}"),
+                    ));
                   });
                 }),
                 registOption()

@@ -1,12 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:quba_mp/reusable_widget/reusable_widget.dart';
-// import 'package:quba_mp/screen/home_screen.dart';
+import 'package:quba_mp/screen/home_screen.dart';
 import 'package:quba_mp/screen/login_screen.dart';
 
 import '../utils/color_utils.dart';
 
-//form
 class RegistScreen extends StatefulWidget {
   const RegistScreen({Key? key}) : super(key: key);
 
@@ -85,7 +84,9 @@ class _RegistScreenState extends State<RegistScreen> {
                           );
                         }));
                   }).onError((error, stackTrace) {
-                    print("Error ${error.toString()}");
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text("${error.toString()}"),
+                    ));
                   });
                 })
               ],

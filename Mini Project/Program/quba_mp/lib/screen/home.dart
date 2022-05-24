@@ -5,7 +5,7 @@ import 'package:quba_mp/view_model/home_view_model.dart';
 import 'package:quran/surah_data.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  // const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,20 +37,23 @@ class HomePage extends StatelessWidget {
                             "Surah ${result[index].name?.transliteration?.id}"),
                         onTap: () {
                           // Navigator.of(context).pushNamed('/detail', arguments: result[index].number.toString());
-                          Navigator.of(context).push(
-                        PageRouteBuilder(
-                            pageBuilder: (context, animation, secondaryAnimation) {
-                          return DetailPage(surah: result[index].number.toString());
-                        }, transitionDuration: Duration(milliseconds: 1500),
-                        transitionsBuilder:
-                                (context, animation, secondaryAnimation, child) {
-                          final tween =
-                              Tween(begin: const Offset(5, 0), end: Offset.zero);
-                          return SlideTransition(
-                            position: animation.drive(tween),
-                            child: child,
-                          );
-                        }));
+                          Navigator.of(context).push(PageRouteBuilder(
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) {
+                                return DetailPage(
+                                    surah: result[index].number.toString());
+                              },
+                              transitionDuration: Duration(milliseconds: 1500),
+                              transitionsBuilder: (context, animation,
+                                  secondaryAnimation, child) {
+                                final tween = Tween(
+                                    begin: const Offset(5, 0),
+                                    end: Offset.zero);
+                                return SlideTransition(
+                                  position: animation.drive(tween),
+                                  child: child,
+                                );
+                              }));
                         },
                       );
                     });

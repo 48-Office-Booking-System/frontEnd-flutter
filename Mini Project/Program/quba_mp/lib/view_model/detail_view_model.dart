@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:quba_mp/model/surah_model.dart';
 import 'package:quba_mp/service/api_service.dart';
 
-//belum digunakan karena eror
 class DetailViewModel extends ChangeNotifier {
   List<Data> _results = [];
   List<Data> get result => _results;

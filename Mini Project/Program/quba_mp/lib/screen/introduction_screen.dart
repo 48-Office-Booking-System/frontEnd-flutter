@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:quba_mp/screen/home.dart';
@@ -56,7 +57,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                 // Navigator.of(context).pushNamed('/');
                 Navigator.of(context).push(PageRouteBuilder(
                     pageBuilder: (context, animation, secondaryAnimation) {
-                      return const HomePage();
+                      return HomePage();
                     },
                     transitionDuration: Duration(milliseconds: 1500),
                     transitionsBuilder:
@@ -77,21 +78,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                     MaterialStateProperty.all<Color>(Colors.deepPurple),
               ),
               onPressed: () {
-                // Navigator.of(context).pushNamed('/');
-                Navigator.of(context).push(PageRouteBuilder(
-                    pageBuilder: (context, animation, secondaryAnimation) {
-                      return const LoginScreen();
-                    },
-                    transitionDuration: Duration(milliseconds: 1500),
-                    transitionsBuilder:
-                        (context, animation, secondaryAnimation, child) {
-                      final tween =
-                          Tween(begin: const Offset(0, -5), end: Offset.zero);
-                      return SlideTransition(
-                        position: animation.drive(tween),
-                        child: child,
-                      );
-                    }));
+                _signOut();
               },
               child: Text("Logout"),
             ),
@@ -99,5 +86,9 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> _signOut() async {
+    await FirebaseAuth.instance.signOut();
   }
 }
