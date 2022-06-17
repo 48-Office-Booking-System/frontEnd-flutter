@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "bookingoffice" "\0"
+            VALUE "FileDescription", "cp_koba" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "bookingoffice" "\0"
+            VALUE "InternalName", "cp_koba" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "bookingoffice.exe" "\0"
-            VALUE "ProductName", "bookingoffice" "\0"
+            VALUE "OriginalFilename", "cp_koba.exe" "\0"
+            VALUE "ProductName", "cp_koba" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

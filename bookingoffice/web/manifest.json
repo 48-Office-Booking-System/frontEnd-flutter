@@ -1,6 +1,6 @@
 {
-    "name": "bookingoffice",
-    "short_name": "bookingoffice",
+    "name": "cp_koba",
+    "short_name": "cp_koba",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

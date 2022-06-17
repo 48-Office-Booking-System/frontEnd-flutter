@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bookingoffice">
+    package="com.example.cp_koba">
    <application
-        android:label="bookingoffice"
+        android:label="cp_koba"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
