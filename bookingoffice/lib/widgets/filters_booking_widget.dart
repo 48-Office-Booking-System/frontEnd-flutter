@@ -66,7 +66,7 @@ class _FiltersBookingWidgetState extends State<FiltersBookingWidget> {
                   value: dropdownValue,
                   focusColor: ColorStyles.dropdownButtonColor2,                    
                   iconEnabledColor: ColorStyles.primaryColor,
-                  iconSize: 50,
+                  iconSize: 40,
                   onChanged: (int? value) {
                     setState(() {
                       dropdownValue = value ?? 0;
@@ -99,7 +99,7 @@ class _FiltersBookingWidgetState extends State<FiltersBookingWidget> {
                   value: dropdownValue,
                   focusColor: ColorStyles.dropdownButtonColor2,                    
                   iconEnabledColor: ColorStyles.primaryColor,
-                  iconSize: 50,
+                  iconSize: 40,
                   onChanged: (int? value) {
                     setState(() {
                       dropdownValue = value ?? 0;
@@ -132,7 +132,7 @@ class _FiltersBookingWidgetState extends State<FiltersBookingWidget> {
                   value: dropdownValue,
                   focusColor: ColorStyles.dropdownButtonColor2,                    
                   iconEnabledColor: ColorStyles.primaryColor,
-                  iconSize: 50,
+                  iconSize: 40,
                   onChanged: (int? value) {
                     setState(() {
                       dropdownValue = value ?? 0;
