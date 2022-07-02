@@ -1,5 +1,9 @@
 import 'package:bookingoffice/components/style.dart';
+import 'package:bookingoffice/widgets/banner_widget.dart';
+import 'package:bookingoffice/widgets/bestseller_view.dart';
+import 'package:bookingoffice/widgets/testimoni_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   static const route = "/home";
@@ -14,23 +18,39 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: ColorStyles.secondaryColor,
+        // title: Text("Booking"),
+        backgroundColor: ColorStyles.primaryColor,
+        // centerTitle: true,
         actions: [
           IconButton(
+            color: ColorStyles.textColor,
+            iconSize: 20,
+            onPressed: (){
+            }, 
+            icon: Icon(Icons.shopping_cart)
+          ),
+          IconButton(
+            color: ColorStyles.textColor,
+            iconSize: 40,
             onPressed: (){
             }, 
             icon: Icon(Icons.account_circle),
-          )
+          ),
         ],
         title: SizedBox(
           height: 35,
           child: Card(
+            color: ColorStyles.searchColor,
             margin: const EdgeInsets.only(top: 0, right: 0, left: 0, bottom: 0),
             child: Row(
               children: [
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                        onPressed: (){}, 
+                        icon: Icon(Icons.search),
+                      ),
                       hintText: "Search",
                       border: InputBorder.none,
                       errorBorder: InputBorder.none,
@@ -46,9 +66,59 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       backgroundColor: ColorStyles.primaryColor,
+      // drawer: DrawerPage(),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 10,
+            ),
+            BannerWidget(),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                'Bestseller',
+                style: 
+                TextStyle(
+                  fontSize: 16, 
+                  fontFamily: 'Work Sans',
+                  color: ColorStyles.textColor, 
+                  fontWeight: FontWeight.w800),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            SizedBox(
+              height: 2,
+            ),
+            BestSellerView(),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Text(
+                'Testimoni',
+                style: 
+                TextStyle(
+                  fontSize: 16, 
+                  fontFamily: 'Work Sans',
+                  color: ColorStyles.textColor, 
+                  fontWeight: FontWeight.w800),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+            SizedBox(
+              height: 2,
+            ),
+            TestimoniView(),
+          ],
+        ),
+      ),
     );
   }
 }
-//     );
-//   }
-// }
