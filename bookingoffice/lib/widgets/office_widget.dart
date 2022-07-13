@@ -1,62 +1,87 @@
 import 'package:bookingoffice/components/style.dart';
-import 'package:bookingoffice/models/office_model.dart';
 import 'package:bookingoffice/pages/detail_page.dart';
+import 'package:bookingoffice/providers/office_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class BestSellerView extends StatefulWidget {
-  const BestSellerView({ Key? key }) : super(key: key);
+class OfficeView extends StatefulWidget {
+  const OfficeView({ Key? key }) : super(key: key);
 
   @override
-  State<BestSellerView> createState() => _BestSellerViewState();
+  State<OfficeView> createState() => _OfficeViewState();
 }
 
-class _BestSellerViewState extends State<BestSellerView> {
-  int currentIndex = 0;
-  final PageController controller = PageController();
+class _OfficeViewState extends State<OfficeView> {
+  // int currentIndex = 0;
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   WidgetsBinding.instance?.addPostFrameCallback((timeStamp) async {
+  //     var viewModel = Provider.of<ProductViewModel>(context, listen: false);
+  //     await viewModel.fetchProducts();
+  //   });
+  // }
 
   @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 235,
-      child: GridView.builder(
-        // controller: controller,
-        // onPageChanged: (index) {
-        //   setState(() {
-        //     currentIndex = index % buildingModelData.length;
-        //   });
-        // },
-        scrollDirection: Axis.horizontal,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 1,
-          mainAxisExtent: 340,
-        ),
-        itemCount: buildingModelData.length, 
-        itemBuilder: (context, index){
-          final building = buildingModelData[index];
-          return InkWell(
-            onTap: () {
+  Widget body(OfficeViewModel viewModel) {
+    // if (viewModel.state == ProductViewState.loading) {
+    //   return Center(child: CircularProgressIndicator());
+    // }else if (viewModel.state == ProductViewState.loaded) {
+      return SizedBox(
+        height: 235,
+        child: GridView.builder(
+          scrollDirection: Axis.horizontal,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 1,
+            mainAxisExtent: 340,
+          ),
+          // onPageChanged: (index) {
+          //   setState(() {
+          //     currentIndex = index % viewModel.list.length;
+          //   });
+          // },
+          itemCount: viewModel.list.length,
+          itemBuilder: (context, index){
+            final building = viewModel.list[index];
+            return InkWell(
+              onTap: () {
               Navigator.of(context).push(
               MaterialPageRoute(builder: (_) => DetailPage(buildingModel: building,)));
-            },
-            child: Card(
-              color: ColorStyles.cardbestseller,
-              elevation: 5,
-              shape: RoundedRectangleBorder(
+              },
+              child: Card(
+                color: ColorStyles.cardbestseller,
+                elevation: 5,
+                shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5)
-              ),
+                ),
               child: Container(
                 padding: EdgeInsets.all(12),
                 child: Column(
                   children: [
                     Row(
                       children: [
-                        SizedBox(
-                          child: Image.asset(
-                            "${building.img}",
-                            height: 130,
-                            width: 150,
-                            fit: BoxFit.cover,
-                          ),
+                        Stack(
+                          alignment: Alignment.bottomRight,
+                          children: [
+                            SizedBox(
+                              child: Image.asset(
+                                "${building.img}",
+                                height: 130,
+                                width: 150,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Positioned(
+                              child: IconButton(
+                                alignment: Alignment.bottomRight,
+                                iconSize: 25,
+                                color: ColorStyles.primaryColor,
+                                onPressed: (){}, 
+                                icon: Icon(Icons.favorite),
+                              ),
+                            ),
+                          ],
                         ),
                         const SizedBox(width: 20),
                         Expanded(
@@ -87,7 +112,7 @@ class _BestSellerViewState extends State<BestSellerView> {
                               ),
                               SizedBox(height: 3),
                               Text(
-                                "${building.category}",
+                                "${building.capacity} orang",
                                 maxLines: 2,
                                 style:
                                 TextStyle(
@@ -98,7 +123,7 @@ class _BestSellerViewState extends State<BestSellerView> {
                               ),
                               SizedBox(height: 3),
                               Text(
-                                '\Rp ${"${building.price}"}/jam',
+                                'Rp ${"${building.price}"}/jam',
                                 style: TextStyle(
                                   fontSize: 16,
                                   color: ColorStyles.primaryColor, 
@@ -122,20 +147,7 @@ class _BestSellerViewState extends State<BestSellerView> {
                           ),
                         ),
                       ],
-                    ),   
-                    const SizedBox(height: 3),
-                    SafeArea(
-                      child: Padding(
-                        padding: EdgeInsets.only(bottom: 8),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            for (var i = 0; i < buildingModelData.length; i++)
-                              buildIndicator(currentIndex == i)
-                          ],
-                        ),
-                      ),
-                    ),    
+                    ),  
                   ],
                 ),
               ),
@@ -145,19 +157,30 @@ class _BestSellerViewState extends State<BestSellerView> {
         padding: const EdgeInsets.all(10),
       ),
     );
+    // }else if (viewModel.state == ProductViewState.error) {
+    //   return Center(child: Text('Gagal mengambil data.'));
+    // }else {
+    //   return Container();
+    // }
   }
 
-  Widget buildIndicator(bool isSelected) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 1),
-      child: Container(
-        height: isSelected ? 14 : 12,
-        width: isSelected ? 14 : 12,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: isSelected ? Colors.grey : Colors.white,
-        ),
-      ),
-    );
+  // Widget buildIndicator(bool isSelected) {
+  //   return Padding(
+  //     padding: const EdgeInsets.symmetric(horizontal: 1),
+  //     child: Container(
+  //       height: isSelected ? 14 : 12,
+  //       width: isSelected ? 14 : 12,
+  //       decoration: BoxDecoration(
+  //         shape: BoxShape.circle,
+  //         color: isSelected ? Colors.grey : Colors.white,
+  //       ),
+  //     ),
+  //   );
+  // }
+
+  @override
+  Widget build(BuildContext context) {
+    OfficeViewModel viewModel = Provider.of<OfficeViewModel>(context);
+    return body(viewModel);
   }
 }

@@ -42,7 +42,7 @@ class _BookingPageState extends State<BookingPage> {
           SizedBox(
             height: 10,
           ),
-          BookingWidget()
+          BookingView(),
         ]
       ),
     );

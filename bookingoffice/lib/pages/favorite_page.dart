@@ -12,12 +12,37 @@ class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Favorite'),
-        centerTitle: true,
-        backgroundColor: ColorStyles.secondaryColor,
-      ),
+      // appBar: AppBar(
+      //   title: const Text('Favorite'),
+      //   centerTitle: true,
+      //   backgroundColor: ColorStyles.secondaryColor,
+      // ),
       backgroundColor: ColorStyles.primaryColor,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              child: Image.asset(
+                "assets/images/favorit.png",
+                height: 250,
+                width: 250,
+                fit: BoxFit.cover,
+              ),
+            ),
+            SizedBox(height: 10,),
+            Text(
+              'Belum ada ruangan yang anda sukai',
+              style: TextStyle(
+                fontSize: 16, 
+                fontFamily: 'Work Sans',
+                color: ColorStyles.textColor, 
+                // fontWeight: FontWeight.w800
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

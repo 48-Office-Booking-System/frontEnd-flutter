@@ -1,9 +1,9 @@
 import 'package:bookingoffice/components/style.dart';
+import 'package:bookingoffice/pages/profile_page.dart';
 import 'package:bookingoffice/widgets/banner_widget.dart';
-import 'package:bookingoffice/widgets/bestseller_view.dart';
+import 'package:bookingoffice/widgets/office_widget.dart';
 import 'package:bookingoffice/widgets/testimoni_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   static const route = "/home";
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             color: ColorStyles.textColor,
-            iconSize: 20,
+            iconSize: 40,
             onPressed: (){
             }, 
             icon: Icon(Icons.shopping_cart)
@@ -33,6 +33,8 @@ class _HomePageState extends State<HomePage> {
             color: ColorStyles.textColor,
             iconSize: 40,
             onPressed: (){
+              Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => ProfilePage()));
             }, 
             icon: Icon(Icons.account_circle),
           ),
@@ -48,6 +50,7 @@ class _HomePageState extends State<HomePage> {
                   child: TextField(
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
+                        color: ColorStyles.searchiconColor,
                         onPressed: (){}, 
                         icon: Icon(Icons.search),
                       ),
@@ -95,7 +98,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 2,
             ),
-            BestSellerView(),
+            OfficeView(),
             SizedBox(
               height: 10,
             ),
