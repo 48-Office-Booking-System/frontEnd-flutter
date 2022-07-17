@@ -1,4 +1,4 @@
-name: cp_koba
+name: map_koba
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -34,9 +34,17 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  provider: ^6.0.3
   google_maps: ^6.2.0
-  curved_navigation_bar: ^1.0.3
+  google_maps_flutter: ^2.1.8
+  geolocator: ^9.0.0
+  provider: ^6.0.3
+  http: ^0.13.4
+  maps_launcher: ^2.0.1
+  font_awesome_flutter: ^10.1.0
+  dio: ^4.0.6
+  google_fonts: ^3.0.1 
+  sqflite: ^2.0.2
+
 
 dev_dependencies:
   flutter_test:
@@ -64,7 +72,6 @@ flutter:
   assets:
     - assets/images/
     - assets/logo.png
-  #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -77,11 +84,6 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  
-  fonts:
-   - family: CM Sans Serif
-     fonts:
-       - asset: assets/cm_sans_serif_2012.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

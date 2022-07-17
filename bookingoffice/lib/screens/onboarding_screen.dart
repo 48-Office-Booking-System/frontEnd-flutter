@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:cp_koba/utility/style.dart';
-
+import 'package:map_koba/components/style.dart';
 import 'login_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -29,7 +28,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       height: 8.0,
       width: isActive ? 24.0 : 16.0,
       decoration: BoxDecoration(
-        color: isActive ? Colors.white : Color(0xFF7B51D3),
+        color: isActive ? Color(0xff121950) : Colors.grey,
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
     );
@@ -47,10 +46,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               end: Alignment.bottomCenter,
               stops: [0.1, 0.4, 0.7, 0.9],
               colors: [
-                Color(0xFF3594DD),
-                Color(0xFF4563DB),
-                Color(0xFF5036D5),
-                Color(0xFF5B16D0),
+                Color.fromARGB(255, 255, 255, 255),
+                Color.fromARGB(255, 253, 253, 253),
+                Color.fromARGB(255, 253, 253, 253),
+                Color.fromARGB(255, 255, 255, 255),
               ],
             ),
           ),
@@ -71,7 +70,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     child: Text(
                       'Skip',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color(0xff121950),
                         fontSize: 20.0,
                       ),
                     ),
@@ -89,7 +88,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     },
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.all(40.0),
+                        padding: EdgeInsets.all(30.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -98,16 +97,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 image: AssetImage(
                                   'assets/images/onboarding0.png',
                                 ),
-                                height: 200.0,
-                                width: 200.0,
+                                height: 210.0,
+                                width: 210.0,
                               ),
                             ),
-                            SizedBox(height: 30.0),
+                            SizedBox(height: 20.0),
                             Text(
                               'Connect people\naround the world',
                               style: kTitleStyle,
                             ),
-                            SizedBox(height: 15.0),
+                            SizedBox(height: 10.0),
                             Text(
                               'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
                               style: kSubtitleStyle,
@@ -116,7 +115,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(40.0),
+                        padding: EdgeInsets.all(30.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -125,16 +124,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 image: AssetImage(
                                   'assets/images/onboarding1.png',
                                 ),
-                                height: 200.0,
-                                width: 200.0,
+                                height: 210.0,
+                                width: 210.0,
                               ),
                             ),
-                            SizedBox(height: 30.0),
+                            SizedBox(height: 20.0),
                             Text(
                               'Live your life smarter\nwith us!',
                               style: kTitleStyle,
                             ),
-                            SizedBox(height: 15.0),
+                            SizedBox(height: 10.0),
                             Text(
                               'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
                               style: kSubtitleStyle,
@@ -143,7 +142,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(40.0),
+                        padding: EdgeInsets.all(30.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -152,16 +151,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 image: AssetImage(
                                   'assets/images/onboarding2.png',
                                 ),
-                                height: 200.0,
-                                width: 200.0,
+                                height: 210.0,
+                                width: 210.0,
                               ),
                             ),
-                            SizedBox(height: 30.0),
+                            SizedBox(height: 20.0),
                             Text(
                               'Get a new experience\nof imagination',
                               style: kTitleStyle,
                             ),
-                            SizedBox(height: 15.0),
+                            SizedBox(height: 10.0),
                             Text(
                               'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
                               style: kSubtitleStyle,
@@ -194,14 +193,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 Text(
                                   'Next',
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: Color(0xff121950),
                                     fontSize: 22.0,
                                   ),
                                 ),
-                                SizedBox(width: 10.0),
+                                SizedBox(width: 20.0),
                                 Icon(
-                                  Icons.arrow_forward,
-                                  color: Colors.white,
+                                  Icons.arrow_forward_ios,
+                                  color: Color(0xff121950),
                                   size: 40.0,
                                 ),
                               ],
@@ -219,7 +218,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ? Container(
               height: 45.0,
               width: double.infinity,
-              color: Color(0xFF5B16D0),
+              color: Colors.white,
               child: GestureDetector(
                 onTap: () {
                   Navigator.push(context,
@@ -227,11 +226,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 },
                 child: Center(
                   child: Padding(
-                    padding: EdgeInsets.only(bottom: 20.0),
+                    padding: EdgeInsets.only(bottom: 15.0),
                     child: Text(
                       'Get started',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color(0xff121950),
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                       ),

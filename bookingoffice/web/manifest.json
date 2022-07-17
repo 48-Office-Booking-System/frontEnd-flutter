@@ -1,6 +1,6 @@
 {
-    "name": "cp_koba",
-    "short_name": "cp_koba",
+    "name": "map_koba",
+    "short_name": "map_koba",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

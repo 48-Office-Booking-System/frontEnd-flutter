@@ -1,6 +1,6 @@
-import 'package:cp_koba/screens/splash_screen.dart';
+import 'package:map_koba/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:cp_koba/screens/signup_screen.dart';
+import 'package:map_koba/screens/signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -22,11 +22,11 @@ class StartState extends State<LoginScreen> {
           height: 300,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(bottomLeft: Radius.circular(90)),
-            color: new Color(0xff606FAA),
+            color: new Color(0xff303B79),
             gradient: LinearGradient(
               colors: [
-                (new Color(0xff606FAA)),
-                Color.fromARGB(255, 159, 172, 224)
+                (new Color(0xff303B79)),
+                Color.fromARGB(255, 90, 100, 175)
               ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -50,7 +50,7 @@ class StartState extends State<LoginScreen> {
                 alignment: Alignment.bottomRight,
                 child: Text(
                   "Login",
-                  style: TextStyle(fontSize: 20, color: Colors.white),
+                  style: TextStyle(fontSize: 10, color: Colors.white),
                 ),
               )
             ],
@@ -72,11 +72,11 @@ class StartState extends State<LoginScreen> {
             ],
           ),
           child: TextField(
-            cursorColor: Color(0xff606FAA),
+            cursorColor: Color(0xff121950),
             decoration: InputDecoration(
               icon: Icon(
                 Icons.email,
-                color: Color(0xff606FAA),
+                color: Color(0xff121950),
               ),
               hintText: "Enter Email",
               enabledBorder: InputBorder.none,
@@ -100,12 +100,12 @@ class StartState extends State<LoginScreen> {
             ],
           ),
           child: TextField(
-            cursorColor: Color(0xff606FAA),
+            cursorColor: Color(0xff303B79),
             decoration: InputDecoration(
-              focusColor: Color(0xff606FAA),
+              focusColor: Color(0xff303B79),
               icon: Icon(
                 Icons.vpn_key,
-                color: Color(0xff606FAA),
+                color: Color(0xff121950),
               ),
               hintText: "Enter Password",
               enabledBorder: InputBorder.none,
@@ -120,7 +120,10 @@ class StartState extends State<LoginScreen> {
             onTap: () {
               // Write Click Listener Code Here
             },
-            child: Text("Forget Password?"),
+            child: Text(
+              "Forget Password?",
+              style: TextStyle(color: Color(0xff121950)),
+            ),
           ),
         ),
         GestureDetector(
@@ -139,10 +142,10 @@ class StartState extends State<LoginScreen> {
             padding: EdgeInsets.only(left: 20, right: 20),
             height: 54,
             decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                (new Color(0xff606FAA)),
-                Color.fromARGB(255, 159, 172, 224)
-              ], begin: Alignment.centerLeft, end: Alignment.centerRight),
+              gradient: LinearGradient(
+                  colors: [(new Color(0xff121950)), new Color(0xff303B79)],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight),
               borderRadius: BorderRadius.circular(50),
               color: Colors.grey[200],
               boxShadow: [
@@ -167,7 +170,7 @@ class StartState extends State<LoginScreen> {
               GestureDetector(
                 child: Text(
                   "Register Now",
-                  style: TextStyle(color: Color(0xff606FAA)),
+                  style: TextStyle(color: new Color(0xff121950)),
                 ),
                 onTap: () {
                   // Write Tap Code Here.

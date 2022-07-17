@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.cp_koba">
+    package="com.example.map_koba">
    <application
-        android:label="cp_koba"
+        android:label="map_koba"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -30,5 +30,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyCkBgi8ooqkRFvFTm_ggxN9C5b1hUhUepM"/>    
     </application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 </manifest>
