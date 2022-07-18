@@ -1,6 +1,7 @@
 import 'package:map_koba/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:map_koba/screens/signup_screen.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -10,6 +11,7 @@ class LoginScreen extends StatefulWidget {
 class StartState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
+    // final viewModelLogin = Provider.of<>(context);
     return initWidget();
   }
 
