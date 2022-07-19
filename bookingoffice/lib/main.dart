@@ -1,6 +1,7 @@
 import 'package:map_koba/components/bottom_navigation.dart';
 import 'package:map_koba/pages/profile_page.dart';
 import 'package:map_koba/screens/onboarding_screen.dart';
+import 'package:map_koba/screens/splash_screen.dart';
 import 'package:map_koba/view_model/koba_view_model.dart';
 import 'package:map_koba/view_model/office_view_model.dart';
 import 'package:map_koba/view_model/review_view_model.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: OnboardingScreen(),
+        home: SplashScreen(),
       ),
     );
   }

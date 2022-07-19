@@ -2,25 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 
-class BuildA extends StatefulWidget {
-  const BuildA({Key? key}) : super(key: key);
+class BuildD extends StatefulWidget {
+  const BuildD({Key? key}) : super(key: key);
 
   @override
-  State<BuildA> createState() => _BuildAState();
+  State<BuildD> createState() => _BuildDState();
 }
 
-class _BuildAState extends State<BuildA> {
+class _BuildDState extends State<BuildD> {
   final List<Map<String, dynamic>> clityList = const [
     {
       "address":
-          "Permata Regency D/37 , Jln H.Kelik ,Srengseng , Kec.Kembangan ,Kota Jakarta Barat , DKI Jakarta",
-      "id": "1",
-      "image":
-          "https://kekantor.com/wp-content/uploads/2021/04/infiniti-office-permata-regency1-800x600.jpeg",
-      "lat": -6.208452170027296,
-      "lng": 106.76417950537643,
-      "name": "-INFINITI OFFICE-",
-      "phone": "0895401010022",
+          "Rukan Daan Mogot , Jalan Daan Mogot Raya No.47 , Tanjung Duren Utara , Kec . Grogol-Petamburan , Kota Jakarta Barat , DKI Jakarta ",
+      "id": "4",
+      "image": "https://media.flyspaces.com/docs/1546700451_5c30c6a352dd9.jpg",
+      "lat": -6.1656669647886915,
+      "lng": 106.783167868727,
+      "name": "-SPACE INC COWORKING- ",
+      "phone": "082171007526",
       "region": "Jakarta"
     },
   ];

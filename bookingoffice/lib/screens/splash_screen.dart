@@ -5,6 +5,7 @@ import 'package:map_koba/pages/home_page.dart';
 import 'package:map_koba/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:map_koba/components/bottom_navigation.dart';
+import 'package:map_koba/screens/onboarding_screen.dart';
 import 'login_screen.dart';
 
 void main() {
@@ -31,7 +32,7 @@ class StartState extends State<SplashScreen> {
 
   route() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => BottomNavigation()));
+        context, MaterialPageRoute(builder: (context) => OnboardingScreen()));
   }
 
   @override

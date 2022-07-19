@@ -10,7 +10,7 @@ class BuildingModel {
   String category;
   String capacity;
   double price;
-
+  String nohp;
 
   BuildingModel({
     required this.id,
@@ -24,6 +24,7 @@ class BuildingModel {
     required this.category,
     required this.capacity,
     required this.price,
+    required this.nohp,
   });
 }
 

@@ -2,25 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 
-class MarkBuildB extends StatefulWidget {
-  const MarkBuildB({Key? key}) : super(key: key);
+class BuildB extends StatefulWidget {
+  const BuildB({Key? key}) : super(key: key);
 
   @override
-  State<MarkBuildB> createState() => _MarkBuildBState();
+  State<BuildB> createState() => _BuildBState();
 }
 
-class _MarkBuildBState extends State<MarkBuildB> {
+class _BuildBState extends State<BuildB> {
   final List<Map<String, dynamic>> clityList = const [
     {
       "address":
-          "APL Tower Central Park Lt 26 ,Unit T3 , Jln. Letjen.S.Parman Kav.28 , Slipi , Kec.Grogol,Jakarta Barat ,DKI Jakarta",
+          "APL Tower Central Park 26th floor Unit T3 ,Jl. Letjen S. Parman 28, Tanjung Duren Selatan , Grogol petamburan, Jakarta Barat, 11470, Indonesia",
       "id": "2",
       "image":
-          "https://upload.wikimedia.org/wikipedia/commons/9/96/Delhi_Red_fort.jpg",
+          "https://kekantor.com/wp-content/uploads/2021/04/vantage-office-apl-tower2-400x300.jpg",
       "lat": -6.177333200014001,
       "lng": 106.79301180661525,
-      "name": "VANTAGE OFFICE ",
-      "phone": "08111998998",
+      "name": "-VANTAGE OFFICE-",
+      "phone": "082171007526",
       "region": "Jakarta"
     },
   ];

@@ -2,24 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 
-class BuildA extends StatefulWidget {
-  const BuildA({Key? key}) : super(key: key);
+class BuildE extends StatefulWidget {
+  const BuildE({Key? key}) : super(key: key);
 
   @override
-  State<BuildA> createState() => _BuildAState();
+  State<BuildE> createState() => _BuildEState();
 }
 
-class _BuildAState extends State<BuildA> {
+class _BuildEState extends State<BuildE> {
   final List<Map<String, dynamic>> clityList = const [
     {
       "address":
-          "Permata Regency D/37 , Jln H.Kelik ,Srengseng , Kec.Kembangan ,Kota Jakarta Barat , DKI Jakarta",
-      "id": "1",
+          "Lippo Mall Puri Lt. Ground Floor( Dekat Lobby Banking Hall) , Jln.Puri Indah Raya ,Blok U1 , Puri Indah CBD , Jkt Barat , DKI Jakarta ",
+      "id": "5",
       "image":
-          "https://kekantor.com/wp-content/uploads/2021/04/infiniti-office-permata-regency1-800x600.jpeg",
-      "lat": -6.208452170027296,
-      "lng": 106.76417950537643,
-      "name": "-INFINITI OFFICE-",
+          " https://kekantor.com/wp-content/uploads/2021/04/gowork-lippo-mall-kemang2-800x600.jpg",
+      "lat": -6.186884333173755,
+      "lng": 106.7400483,
+      "name": "-GO WORK LIPPO MALL- ",
       "phone": "0895401010022",
       "region": "Jakarta"
     },

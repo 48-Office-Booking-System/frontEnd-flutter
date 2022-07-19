@@ -1,8 +1,13 @@
 import 'dart:io';
 
 import 'package:map_koba/components/color.dart';
+import 'package:map_koba/maps/mark_buildA.dart';
+import 'package:map_koba/maps/mark_buildB.dart';
+import 'package:map_koba/maps/mark_buildC.dart';
+import 'package:map_koba/maps/mark_buildD.dart';
+import 'package:map_koba/maps/mark_buildE.dart';
+import 'package:map_koba/maps/mark_buildF.dart';
 import 'package:map_koba/model/office_model.dart';
-import 'package:map_koba/pages/chat_page.dart';
 import 'package:map_koba/widgets/review_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -40,8 +45,8 @@ class _DetailPageState extends State<DetailPage> {
               color: ColorStyles.textColor,
               iconSize: 27,
               onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (_) => openwhatsapp()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => openwhatsapp(widget.buildingModel.nohp)));
               },
             ),
           ],
@@ -178,12 +183,35 @@ class _DetailPageState extends State<DetailPage> {
               const SizedBox(
                 height: 20,
               ),
-              SizedBox(
-                child: Image.asset(
-                  "assets/images/maps.png",
-                  height: 150,
-                  width: 403,
-                  fit: BoxFit.cover,
+              GestureDetector(
+                onTap: () {
+                  if (widget.buildingModel.name == "Building A") {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BuildA()));
+                  } else if (widget.buildingModel.name == "Building B") {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BuildB()));
+                  } else if (widget.buildingModel.name == "Building C") {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BuildC()));
+                  } else if (widget.buildingModel.name == "Building D") {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BuildD()));
+                  } else if (widget.buildingModel.name == "Building E") {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BuildE()));
+                  } else if (widget.buildingModel.name == "Building F") {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BuildF()));
+                  }
+                },
+                child: SizedBox(
+                  child: Image.asset(
+                    "assets/images/maps.png",
+                    height: 150,
+                    width: 403,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               const SizedBox(
@@ -248,11 +276,13 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 
-  openwhatsapp() async {
-    var whatsapp = "+6283822490888";
-    var whatsappURl_android =
-        "whatsapp://send?phone=" + whatsapp + "&text=Halo, ";
-    var whatappURL_ios = "https://wa.me/$whatsapp?text=${Uri.parse("hello")}";
+  openwhatsapp(String nohp) async {
+    var whatsapp = nohp;
+    var whatsappURl_android = "whatsapp://send?phone=" +
+        whatsapp +
+        "&text= Halo Koba-min^^ ~ \nSaya mau booking  ... ";
+    var whatappURL_ios =
+        "https://wa.me/$whatsapp?text=${Uri.parse("Halo , saya mau tanya ...")}";
     if (Platform.isIOS) {
       // for iOS phone only
       if (await canLaunch(whatappURL_ios)) {

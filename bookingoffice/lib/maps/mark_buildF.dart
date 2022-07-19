@@ -2,25 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 
-class BuildA extends StatefulWidget {
-  const BuildA({Key? key}) : super(key: key);
+class BuildF extends StatefulWidget {
+  const BuildF({Key? key}) : super(key: key);
 
   @override
-  State<BuildA> createState() => _BuildAState();
+  State<BuildF> createState() => _BuildFState();
 }
 
-class _BuildAState extends State<BuildA> {
+class _BuildFState extends State<BuildF> {
   final List<Map<String, dynamic>> clityList = const [
     {
       "address":
-          "Permata Regency D/37 , Jln H.Kelik ,Srengseng , Kec.Kembangan ,Kota Jakarta Barat , DKI Jakarta",
-      "id": "1",
+          "Lippo Mall Puri Lt. Ground Floor( Dekat Lobby Banking Hall) , Jln.Puri Indah Raya ,Blok U1 , Puri Indah CBD , Jkt Barat , DKI Jakarta ",
+      "id": "6",
       "image":
-          "https://kekantor.com/wp-content/uploads/2021/04/infiniti-office-permata-regency1-800x600.jpeg",
-      "lat": -6.208452170027296,
-      "lng": 106.76417950537643,
-      "name": "-INFINITI OFFICE-",
-      "phone": "0895401010022",
+          " https://b.zmtcdn.com/data/pictures/8/18755438/f5cd0e2dc2aa865b2f3c79e70cc04e54.jpg",
+      "lat": -6.189279665198186,
+      "lng": 106.76986163558223,
+      "name": "-SOMA COWORKING CAFE- ",
+      "phone": "082171007526",
       "region": "Jakarta"
     },
   ];

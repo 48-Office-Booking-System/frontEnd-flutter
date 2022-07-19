@@ -1,3 +1,4 @@
+import 'package:map_koba/components/bottom_navigation.dart';
 import 'package:map_koba/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:map_koba/screens/signup_screen.dart';
@@ -134,7 +135,7 @@ class StartState extends State<LoginScreen> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SplashScreen(),
+                  builder: (context) => BottomNavigation(),
                 ));
             // Write Click Listener Code Here.
           },
