@@ -1,9 +1,11 @@
+import 'dart:io';
+
 import 'package:map_koba/components/color.dart';
 import 'package:map_koba/model/office_model.dart';
 import 'package:map_koba/pages/chat_page.dart';
 import 'package:map_koba/widgets/review_widget.dart';
 import 'package:flutter/material.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 import '../model/office_model.dart';
 
 class DetailPage extends StatefulWidget {
@@ -39,7 +41,7 @@ class _DetailPageState extends State<DetailPage> {
               iconSize: 27,
               onPressed: () {
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (_) => ChatPage()));
+                    .push(MaterialPageRoute(builder: (_) => openwhatsapp()));
               },
             ),
           ],
@@ -244,5 +246,29 @@ class _DetailPageState extends State<DetailPage> {
         ),
       ),
     );
+  }
+
+  openwhatsapp() async {
+    var whatsapp = "+6283822490888";
+    var whatsappURl_android =
+        "whatsapp://send?phone=" + whatsapp + "&text=Halo, ";
+    var whatappURL_ios = "https://wa.me/$whatsapp?text=${Uri.parse("hello")}";
+    if (Platform.isIOS) {
+      // for iOS phone only
+      if (await canLaunch(whatappURL_ios)) {
+        await launch(whatappURL_ios, forceSafariVC: false);
+      } else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: new Text("whatsapp no installed")));
+      }
+    } else {
+      // android , web
+      if (await canLaunch(whatsappURl_android)) {
+        await launch(whatsappURl_android);
+      } else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: new Text("whatsapp no installed")));
+      }
+    }
   }
 }
