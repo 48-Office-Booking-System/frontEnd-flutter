@@ -280,7 +280,7 @@ class _DetailPageState extends State<DetailPage> {
     var whatsapp = nohp;
     var whatsappURl_android = "whatsapp://send?phone=" +
         whatsapp +
-        "&text= Halo Koba-min^^ ~ \nSaya mau booking  ... ";
+        "&text= Halo Koba-min^^ ~ \nSaya mau booking (nama build) \nUntuk tanggal (...) jam (...) \nsampai dengan \nTanggal (...) jam (...) \nApakah tersedia ? \nSpill persyaratannya dong min🤗 \nTerima Kasih.  ";
     var whatappURL_ios =
         "https://wa.me/$whatsapp?text=${Uri.parse("Halo , saya mau tanya ...")}";
     if (Platform.isIOS) {

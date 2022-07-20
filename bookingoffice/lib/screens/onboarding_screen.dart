@@ -103,12 +103,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: 20.0),
                             Text(
-                              'Connect people\naround the world',
+                              'Harga Sewa Terjangkau ',
                               style: kTitleStyle,
                             ),
                             SizedBox(height: 10.0),
                             Text(
-                              'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+                              'Miliki kantor impianmu dengan beragam pilihan harga .',
                               style: kSubtitleStyle,
                             ),
                           ],
@@ -130,12 +130,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: 20.0),
                             Text(
-                              'Live your life smarter\nwith us!',
+                              'Kualitas Ruangan Yang Terjamin ',
                               style: kTitleStyle,
                             ),
                             SizedBox(height: 10.0),
                             Text(
-                              'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+                              'Ruang kantor yang terjamin kualitasnya ',
                               style: kSubtitleStyle,
                             ),
                           ],
@@ -157,12 +157,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                             SizedBox(height: 20.0),
                             Text(
-                              'Get a new experience\nof imagination',
+                              'Menyediakan Fasilitas Terbaik!!!',
                               style: kTitleStyle,
                             ),
                             SizedBox(height: 10.0),
                             Text(
-                              'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+                              'Fasilitas yang kami miliki merupakan yang terbaik dikelasnya.',
                               style: kSubtitleStyle,
                             ),
                           ],
