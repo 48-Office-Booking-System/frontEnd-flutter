@@ -11,7 +11,7 @@ class DetailPage extends StatelessWidget {
 
   final Datum listData;
 
-  const DetailPage({Key? key, required this.listData}) : super(key: key);
+  const DetailPage({Key? key, required this.listData, required int id}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

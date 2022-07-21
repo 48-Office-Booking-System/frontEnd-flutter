@@ -46,6 +46,42 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: SplashScreen(),
+        onGenerateRoute: (RouteSettings settings) {
+          switch (settings.name) {
+            case HomePage.routeName:
+              return MaterialPageRoute(builder: (_) => HomePage());
+            case BookingPage.routeName:
+              return MaterialPageRoute(builder: (_) => const BookingPage());
+            case ChatPage.routeName:
+              return MaterialPageRoute(builder: (_) => const ChatPage());
+            case EditProfilePage.routeName:
+              return MaterialPageRoute(builder: (_) => const EditProfilePage());
+            case ProfilePage.routeName:
+              return MaterialPageRoute(builder: (_) => const ProfilePage());
+            case FavoritePage.routeName:
+              return MaterialPageRoute(builder: (_) => const FavoritePage());
+            case LoginScreen.routeName:
+              return MaterialPageRoute(builder: (_) => LoginScreen());
+            case OnboardingScreen.routeName:
+              return MaterialPageRoute(builder: (_) => OnboardingScreen());
+            case SignUpScreen.routeName:
+              return MaterialPageRoute(builder: (_) => SignUpScreen());
+            case DetailPage.routeName:
+              final id = settings.arguments as int;
+              return MaterialPageRoute(
+                builder: (_) => DetailPage(id: id, listData: ModalRoute.of(context)?.settings.arguments as Datum,),
+                settings: settings,
+              );
+            default:
+              return MaterialPageRoute(builder: (_) {
+                return Scaffold(
+                  body: Center(
+                    child: Text('Page not found :('),
+                  ),
+                );
+              });
+          }
+        },
         // initialRoute: SplashScreen.routeName,
         // routes: {
         //   HomePage.routeName: (context) => HomePage(),
