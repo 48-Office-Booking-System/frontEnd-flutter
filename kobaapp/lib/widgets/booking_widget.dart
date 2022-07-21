@@ -139,7 +139,8 @@ class _BookingViewState extends State<BookingView> {
   Widget buildOfficeListItem(BuildContext context, Datum data) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, DetailPage.routeName, arguments: data);
+        Navigator.pushNamed(context,DetailPage.routeName,arguments: data.id,);
+        // Navigator.pushNamed(context, DetailPage.routeName, arguments: data);
       },
       child: Card(
         color: ColorStyles.cardbestseller,
@@ -158,7 +159,6 @@ class _BookingViewState extends State<BookingView> {
                 SizedBox(
                   child: Image.network(
                     "${data.photoUrls![0].url}",
-                    // "${data.photoUrls![0].url}",
                     height: 160,
                     width: 260,
                     fit: BoxFit.cover,

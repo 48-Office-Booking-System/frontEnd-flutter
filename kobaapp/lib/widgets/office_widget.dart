@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:map_koba/components/color.dart';
 import 'package:map_koba/components/result_state.dart';
 import 'package:map_koba/model/list_model.dart';
+import 'package:map_koba/pages/detail_page.dart';
 import 'package:map_koba/services/remote_services.dart';
 import 'package:map_koba/view_model/list_view_model.dart';
 import 'package:provider/provider.dart';
@@ -133,8 +134,7 @@ class _OfficeViewState extends State<OfficeView> {
   Widget buildOfficeListItem(BuildContext context, Datum data) {
     return InkWell(
       onTap: () {
-      // Navigator.of(context).push(
-      // MaterialPageRoute(builder: (_) => DetailPage(buildingModel: building,)));
+        Navigator.pushNamed(context,DetailPage.routeName,arguments: data.id,);
       },
       child: Card(
         color: ColorStyles.cardbestseller,
@@ -154,7 +154,6 @@ class _OfficeViewState extends State<OfficeView> {
                     SizedBox(
                       child: Image.network(
                         "${data.photoUrls![0].url}",
-                        // "${data.photoUrls}",
                         height: 200,
                         width: 160,
                         fit: BoxFit.cover,
