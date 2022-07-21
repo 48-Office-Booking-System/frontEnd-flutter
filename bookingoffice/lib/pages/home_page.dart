@@ -1,8 +1,9 @@
-import 'package:bookingoffice/components/style.dart';
-import 'package:bookingoffice/pages/profile_page.dart';
-import 'package:bookingoffice/widgets/banner_widget.dart';
-import 'package:bookingoffice/widgets/office_widget.dart';
-import 'package:bookingoffice/widgets/testimoni_widget.dart';
+import 'package:map_koba/components/color.dart';
+import 'package:map_koba/maps/allMaps.dart';
+import 'package:map_koba/pages/profile_page.dart';
+import 'package:map_koba/widgets/banner_widget.dart';
+import 'package:map_koba/widgets/office_widget.dart';
+import 'package:map_koba/widgets/testimoni_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,11 +14,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leadingWidth: 0,
         // title: Text("Booking"),
         backgroundColor: ColorStyles.primaryColor,
         // centerTitle: true,
@@ -26,8 +27,10 @@ class _HomePageState extends State<HomePage> {
             color: ColorStyles.textColor,
             iconSize: 40,
             onPressed: (){
+              Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_) => Maps()));
             }, 
-            icon: Icon(Icons.shopping_cart)
+            icon: Icon(Icons.map_outlined)
           ),
           IconButton(
             color: ColorStyles.textColor,
@@ -86,12 +89,11 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Text(
                 'Bestseller',
-                style: 
-                TextStyle(
-                  fontSize: 16, 
-                  fontFamily: 'Work Sans',
-                  color: ColorStyles.textColor, 
-                  fontWeight: FontWeight.w800),
+                style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Work Sans',
+                    color: ColorStyles.textColor,
+                    fontWeight: FontWeight.w800),
                 overflow: TextOverflow.ellipsis,
               ),
             ),
@@ -106,12 +108,11 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Text(
                 'Testimoni',
-                style: 
-                TextStyle(
-                  fontSize: 16, 
-                  fontFamily: 'Work Sans',
-                  color: ColorStyles.textColor, 
-                  fontWeight: FontWeight.w800),
+                style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: 'Work Sans',
+                    color: ColorStyles.textColor,
+                    fontWeight: FontWeight.w800),
                 overflow: TextOverflow.ellipsis,
               ),
             ),

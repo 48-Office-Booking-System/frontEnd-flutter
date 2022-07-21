@@ -1,12 +1,12 @@
-import 'package:bookingoffice/components/style.dart';
-import 'package:bookingoffice/pages/booking_page.dart';
-import 'package:bookingoffice/pages/chat_page.dart';
-import 'package:bookingoffice/pages/favorite_page.dart';
-import 'package:bookingoffice/pages/home_page.dart';
+import 'package:map_koba/components/color.dart';
+import 'package:map_koba/pages/booking_page.dart';
+import 'package:map_koba/pages/chat_page.dart';
+import 'package:map_koba/pages/favorite_page.dart';
+import 'package:map_koba/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigation extends StatefulWidget {
-  const BottomNavigation({ Key? key }) : super(key: key);
+  const BottomNavigation({Key? key}) : super(key: key);
 
   @override
   _BottomNavigationState createState() => _BottomNavigationState();
@@ -14,7 +14,12 @@ class BottomNavigation extends StatefulWidget {
 
 class _BottomNavigationState extends State<BottomNavigation> {
   int _selectedIndex = 0;
-  final List<Widget> _container = [HomePage(), BookingPage(), ChatPage(), FavoritePage()];
+  final List<Widget> _container = [
+    HomePage(),
+    BookingPage(),
+    ChatPage(),
+    FavoritePage()
+  ];
 
   @override
   void initState() {
@@ -38,9 +43,11 @@ class _BottomNavigationState extends State<BottomNavigation> {
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.date_range), label: 'Booking'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.date_range), label: 'Booking'),
           BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Chat'),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favorite'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite), label: 'Favorite'),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: ColorStyles.primaryColor,

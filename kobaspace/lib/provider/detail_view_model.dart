@@ -4,9 +4,10 @@ import 'package:kobaspace/services/remote_services.dart';
 
 class DetailViewModel extends ChangeNotifier {
   final RemoteServices remoteServices;
+  final int id;
 
-  DetailViewModel({required this.remoteServices}) {
-    dataDetail();
+  DetailViewModel({required this.remoteServices, required this.id}) {
+    dataDetail(id);
   }
 
   String _message = '';
@@ -17,11 +18,11 @@ class DetailViewModel extends ChangeNotifier {
   dynamic get result => _dataResult;
   ResultState get state => _state;
 
-  Future<dynamic> dataDetail() async {
+  Future<dynamic> dataDetail(int id) async {
     try {
       _state = ResultState.loading;
       notifyListeners();
-      final dataDetail = await remoteServices.dataDetail();
+      final dataDetail = await remoteServices.dataDetail(id);
       _state = ResultState.hasData;
       notifyListeners();
       return _dataResult = dataDetail.data;

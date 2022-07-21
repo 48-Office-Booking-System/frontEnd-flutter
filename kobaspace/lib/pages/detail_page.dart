@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kobaspace/components/result_state.dart';
 import 'package:kobaspace/components/style.dart';
 import 'package:kobaspace/models/detail_model.dart';
-import 'package:kobaspace/models/list_model.dart';
 import 'package:kobaspace/provider/detail_view_model.dart';
 import 'package:kobaspace/services/remote_services.dart';
 import 'package:provider/provider.dart';
@@ -22,12 +21,13 @@ class _DetailPageState extends State<DetailPage> {
   var inputController = TextEditingController();
   var formKey = GlobalKey<FormState>();
   var dropdownValue = 0;
+  var id;
 
   Widget buildList(BuildContext context) {
     late DetailViewModel provider;
 
     return ChangeNotifierProvider<DetailViewModel>(
-      create: (_) => DetailViewModel(remoteServices: RemoteServices()),
+      create: (_) => DetailViewModel(remoteServices: RemoteServices(), id: id),
       child: Consumer<DetailViewModel>(builder: (context, state, _) {
         provider = state;
         if (state.state == ResultState.loading) {
@@ -37,7 +37,14 @@ class _DetailPageState extends State<DetailPage> {
             ),
           );
         } else if (state.state == ResultState.hasData) {
-          final List<Datum> office = state.result;
+          final List<Data> office = state.result;
+          // return ListView.builder(
+          //   padding: const EdgeInsets.all(10),
+          //   itemCount: office.length,
+          //   itemBuilder: (context, index) {
+          //     return buildOfficeListItem(context, office[index]);
+          //   },
+          // );
           return SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(10),
@@ -63,7 +70,7 @@ class _DetailPageState extends State<DetailPage> {
                 ),
                 Text(
                   state.message,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Colors.grey,
@@ -78,7 +85,7 @@ class _DetailPageState extends State<DetailPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Center(
-                  child: Text(
+                  child: const Text(
                     "No Connection!",
                     style: TextStyle(
                       fontSize: 14,
@@ -89,7 +96,7 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                 ),
                 const SizedBox(height: 5),
-                Center(
+                const Center(
                   child: Text(
                     "Please check your connection or try again later.",
                     style: TextStyle(
@@ -112,7 +119,7 @@ class _DetailPageState extends State<DetailPage> {
                     primary: Colors.grey,
                   ),
                   onPressed: () {
-                    provider.dataDetail();
+                    provider.dataDetail(id);
                   },
                 ),
               ],
@@ -125,7 +132,7 @@ class _DetailPageState extends State<DetailPage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 2.5,
                 ),
-                Text(
+                const Text(
                   "Error",
                   style: TextStyle(
                     fontSize: 16,
@@ -141,17 +148,17 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 
-  Widget buildOfficeListItem(BuildContext context, Datum data) {
+  Widget buildOfficeListItem(BuildContext context, Data data) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         SizedBox(
-          child: Image.asset('',
-            // data.img,
+          child: Image.network('',
+            // "${data.photoUrls![0].url}",
             height: 175,
             width: 403,
             fit: BoxFit.cover,
@@ -161,7 +168,7 @@ class _DetailPageState extends State<DetailPage> {
           height: 20,
         ),
         Text(
-          data.name,
+          "${data.name}",
           style: const TextStyle(
             fontSize: 20, 
             fontFamily: 'avenir',
@@ -217,7 +224,7 @@ class _DetailPageState extends State<DetailPage> {
         Row(
           children: List.generate(
             5, 
-            (index) => Icon(
+            (index) => const Icon(
               Icons.star,
               color: ColorStyles.ratingColor,
             ),
@@ -226,8 +233,8 @@ class _DetailPageState extends State<DetailPage> {
         const SizedBox(
           height: 5,
         ),
-        Text(
-          data.description,
+        Text('',
+          // "${data.description}",
           style: const TextStyle(
             fontSize: 16, 
             fontFamily: 'avenir',
@@ -238,9 +245,9 @@ class _DetailPageState extends State<DetailPage> {
         const SizedBox(
           height: 20,
         ),
-        Text(
+        const Text(
           'Lokasi',
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 18, 
             fontFamily: 'avenir',
             color: ColorStyles.blackColor, 
@@ -250,8 +257,8 @@ class _DetailPageState extends State<DetailPage> {
         const SizedBox(
           height: 5,
         ),
-        Text(
-          data.latitude,
+        Text('',
+          // "${data.latitude}",
           style: const TextStyle(
             fontSize: 16, 
             fontFamily: 'avenir',
@@ -262,8 +269,8 @@ class _DetailPageState extends State<DetailPage> {
         const SizedBox(
           height: 5,
         ),
-        Text(
-          data.longitude,
+        Text('',
+          // "${data.longitude}",
           style: const TextStyle(
             fontSize: 16, 
             fontFamily: 'avenir',
@@ -285,9 +292,9 @@ class _DetailPageState extends State<DetailPage> {
         const SizedBox(
           height: 20,
         ),
-        Text(
+        const Text(
           'Ketersediaan',
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 18, 
             fontFamily: 'avenir',
             color: ColorStyles.blackColor, 
@@ -300,9 +307,9 @@ class _DetailPageState extends State<DetailPage> {
         const SizedBox(
           height: 20,
         ),
-        Text(
+        const Text(
           'Fasilitas',
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 18, 
             fontFamily: 'avenir',
             color: ColorStyles.blackColor, 
@@ -312,9 +319,9 @@ class _DetailPageState extends State<DetailPage> {
         const SizedBox(
           height: 5,
         ),
-        Text(
+        const Text(
           '',
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 16, 
             fontFamily: 'avenir',
             color: ColorStyles.searchiconColor, 
@@ -324,9 +331,9 @@ class _DetailPageState extends State<DetailPage> {
         const SizedBox(
           height: 20,
         ),
-        Text(
+        const Text(
           'Review',
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 18, 
             fontFamily: 'avenir',
             color: ColorStyles.blackColor, 
@@ -347,9 +354,9 @@ class _DetailPageState extends State<DetailPage> {
       appBar: AppBar(
         backgroundColor: ColorStyles.secondaryColor,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Detail',
-          style: const TextStyle(
+          style: TextStyle(
             color: ColorStyles.blackColor,
           ),
         ),

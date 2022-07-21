@@ -1,11 +1,12 @@
-import 'package:bookingoffice/components/style.dart';
-import 'package:bookingoffice/pages/detail_page.dart';
-import 'package:bookingoffice/providers/office_view_model.dart';
+import 'package:map_koba/components/color.dart';
+import 'package:map_koba/pages/chat_page.dart';
+import 'package:map_koba/pages/detail_page.dart';
+import 'package:map_koba/view_model/office_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class OfficeView extends StatefulWidget {
-  const OfficeView({ Key? key }) : super(key: key);
+  const OfficeView({Key? key}) : super(key: key);
 
   @override
   State<OfficeView> createState() => _OfficeViewState();
@@ -28,33 +29,34 @@ class _OfficeViewState extends State<OfficeView> {
     // if (viewModel.state == ProductViewState.loading) {
     //   return Center(child: CircularProgressIndicator());
     // }else if (viewModel.state == ProductViewState.loaded) {
-      return SizedBox(
-        height: 235,
-        child: GridView.builder(
-          scrollDirection: Axis.horizontal,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 1,
-            mainAxisExtent: 340,
-          ),
-          // onPageChanged: (index) {
-          //   setState(() {
-          //     currentIndex = index % viewModel.list.length;
-          //   });
-          // },
-          itemCount: viewModel.list.length,
-          itemBuilder: (context, index){
-            final building = viewModel.list[index];
-            return InkWell(
-              onTap: () {
-              Navigator.of(context).push(
-              MaterialPageRoute(builder: (_) => DetailPage(buildingModel: building,)));
-              },
-              child: Card(
-                color: ColorStyles.cardbestseller,
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5)
-                ),
+    return SizedBox(
+      height: 235,
+      child: GridView.builder(
+        scrollDirection: Axis.horizontal,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 1,
+          mainAxisExtent: 340,
+        ),
+        // onPageChanged: (index) {
+        //   setState(() {
+        //     currentIndex = index % viewModel.list.length;
+        //   });
+        // },
+        itemCount: viewModel.list.length,
+        itemBuilder: (context, index) {
+          final building = viewModel.list[index];
+          return InkWell(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => DetailPage(
+                        buildingModel: building,
+                      )));
+            },
+            child: Card(
+              color: ColorStyles.cardbestseller,
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5)),
               child: Container(
                 padding: EdgeInsets.all(12),
                 child: Column(
@@ -77,7 +79,9 @@ class _OfficeViewState extends State<OfficeView> {
                                 alignment: Alignment.bottomRight,
                                 iconSize: 25,
                                 color: ColorStyles.primaryColor,
-                                onPressed: (){}, 
+                                onPressed: () {
+                                  
+                                },
                                 icon: Icon(Icons.favorite),
                               ),
                             ),
@@ -92,18 +96,17 @@ class _OfficeViewState extends State<OfficeView> {
                               Text(
                                 "${building.name}",
                                 maxLines: 2,
-                                style:
-                                TextStyle(
-                                  fontSize: 16, 
-                                  fontFamily: 'avenir',
-                                  color: ColorStyles.primaryColor, 
-                                  fontWeight: FontWeight.w800),
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    fontFamily: 'avenir',
+                                    color: ColorStyles.primaryColor,
+                                    fontWeight: FontWeight.w800),
                                 overflow: TextOverflow.ellipsis,
                               ),
                               SizedBox(height: 3),
                               Row(
                                 children: List.generate(
-                                  5, 
+                                  5,
                                   (index) => Icon(
                                     Icons.star,
                                     color: ColorStyles.ratingColor,
@@ -114,40 +117,40 @@ class _OfficeViewState extends State<OfficeView> {
                               Text(
                                 "${building.capacity} orang",
                                 maxLines: 2,
-                                style:
-                                TextStyle(
-                                  fontFamily: 'avenir',
-                                  color: ColorStyles.primaryColor, 
-                                  fontWeight: FontWeight.w800),
+                                style: TextStyle(
+                                    fontFamily: 'avenir',
+                                    color: ColorStyles.primaryColor,
+                                    fontWeight: FontWeight.w800),
                                 overflow: TextOverflow.ellipsis,
                               ),
                               SizedBox(height: 3),
-                              Text(
-                                'Rp ${"${building.price}"}/jam',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: ColorStyles.primaryColor, 
-                                  fontFamily: 'avenir')
-                              ),
+                              Text('Rp ${"${building.price}"}/jam',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      color: ColorStyles.primaryColor,
+                                      fontFamily: 'avenir')),
                               SizedBox(height: 3),
                               Center(
                                 child: ElevatedButton(
-                                  onPressed: (){}, 
+                                  onPressed: () {
+                                    Navigator.of(context)
+                                      .push(MaterialPageRoute(builder: (_) => ChatPage()));
+                                  },
                                   child: const Text("Pesan",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: ColorStyles.textColor, 
-                                    fontFamily: 'avenir')
-                                  ),
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: ColorStyles.textColor,
+                                          fontFamily: 'avenir')),
                                   style: ElevatedButton.styleFrom(
-                                    fixedSize: const Size(80, 35), primary: ColorStyles.buttonPesanColor),
+                                      fixedSize: const Size(80, 35),
+                                      primary: ColorStyles.buttonPesanColor),
                                 ),
                               ),
                             ],
                           ),
                         ),
                       ],
-                    ),  
+                    ),
                   ],
                 ),
               ),

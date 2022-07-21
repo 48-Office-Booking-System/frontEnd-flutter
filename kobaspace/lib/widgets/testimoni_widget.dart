@@ -29,7 +29,7 @@ class _TestimoniViewState extends State<TestimoniView> {
             ),
           );
         } else if (state.state == ResultState.hasData) {
-          final List<Datum> office = state.result;
+          final List<Data> office = state.result;
           return SizedBox(
             height: 265,
             child: GridView.builder(
@@ -133,7 +133,7 @@ class _TestimoniViewState extends State<TestimoniView> {
     );
   }
 
-  Widget buildOfficeListItem(BuildContext context, Datum data) {
+  Widget buildOfficeListItem(BuildContext context, Data data) {
     return InkWell(
       onTap: () {
       // Navigator.of(context).push(
@@ -151,8 +151,8 @@ class _TestimoniViewState extends State<TestimoniView> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              child: Image.asset(
-                "${data.office.photoUrls}",
+              child: Image.network(
+                "${data.office?.photoUrls}",
                 // "${data.photoUrls}",
                 height: 140,
                 width: 240,
@@ -164,8 +164,8 @@ class _TestimoniViewState extends State<TestimoniView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 RatingBarIndicator(
-                  rating: data.star / 1,
-                  itemCount: data.star,
+                  rating: data.star! / 1,
+                  itemCount: data.star!,
                   itemBuilder: (context, index) => Icon(
                     Icons.star,
                     color: ColorStyles.ratingColor,
@@ -208,7 +208,7 @@ class _TestimoniViewState extends State<TestimoniView> {
             ),
             const SizedBox(height: 3),
             Text(
-              '\-${"${data.user.name}"}-',
+              '\-${"${data.user?.name}"}-',
               style: TextStyle(
                 fontSize: 14,
                 color: ColorStyles.textColor, 

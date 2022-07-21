@@ -17,8 +17,8 @@ class RemoteServices {
     }
   }
 
-  Future<DetailModel> dataDetail() async {
-    final response = await http.get(Uri.parse('$baseURL/2'));
+  Future<DetailModel> dataDetail(int id) async {
+    final response = await http.get(Uri.parse('$baseURL/$id'));
     if (response.statusCode == 200) {
       return DetailModel.fromJson(json.decode(response.body));
     } else {

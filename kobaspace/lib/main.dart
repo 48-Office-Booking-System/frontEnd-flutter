@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kobaspace/components/bottom_navigation.dart';
-import 'package:kobaspace/pages/chat_page.dart';
 import 'package:kobaspace/provider/detail_view_model.dart';
 import 'package:kobaspace/provider/list_view_model.dart';
 import 'package:kobaspace/provider/review_view_model.dart';
@@ -14,6 +13,8 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  get id => null;
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
             create: (_) => ListViewModel(remoteServices: RemoteServices()),
           ),
           ChangeNotifierProvider(
-            create: (_) => DetailViewModel(remoteServices: RemoteServices()),
+            create: (_) => DetailViewModel(remoteServices: RemoteServices(), id: id),
           ),
           ChangeNotifierProvider(
             create: (_) => ReviewViewModel(remoteServices: RemoteServices()),

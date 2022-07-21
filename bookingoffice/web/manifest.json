@@ -1,6 +1,6 @@
 {
-    "name": "bookingoffice",
-    "short_name": "bookingoffice",
+    "name": "map_koba",
+    "short_name": "map_koba",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
             iconSize: 40,
             onPressed: (){
             }, 
-            icon: Icon(Icons.shopping_cart)
+            icon: Icon(Icons.map),
           ),
           IconButton(
             color: ColorStyles.textColor,

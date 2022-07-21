@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kobaspace/components/result_state.dart';
 import 'package:kobaspace/components/style.dart';
 import 'package:kobaspace/models/list_model.dart';
+import 'package:kobaspace/pages/chat_page.dart';
+import 'package:kobaspace/pages/detail_page.dart';
 import 'package:kobaspace/provider/list_view_model.dart';
 import 'package:kobaspace/services/remote_services.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +16,8 @@ class BookingView extends StatefulWidget {
 }
 
 class _BookingViewState extends State<BookingView> {
+  get id => null;
+
 
   Widget buildList(BuildContext context) {
     late ListViewModel provider;
@@ -29,7 +33,7 @@ class _BookingViewState extends State<BookingView> {
             ),
           );
         } else if (state.state == ResultState.hasData) {
-          final List<Datum> office = state.result;
+          final List<Data> office = state.result;
           return SizedBox(
             height: 540,
             child: GridView.builder(
@@ -55,7 +59,7 @@ class _BookingViewState extends State<BookingView> {
                 ),
                 Text(
                   state.message,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Colors.grey,
@@ -69,7 +73,7 @@ class _BookingViewState extends State<BookingView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
+                const Center(
                   child: Text(
                     "No Connection!",
                     style: TextStyle(
@@ -81,7 +85,7 @@ class _BookingViewState extends State<BookingView> {
                   ),
                 ),
                 const SizedBox(height: 5),
-                Center(
+                const Center(
                   child: Text(
                     "Please check your connection or try again later.",
                     style: TextStyle(
@@ -117,7 +121,7 @@ class _BookingViewState extends State<BookingView> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 2.5,
                 ),
-                Text(
+                const Text(
                   "Error",
                   style: TextStyle(
                     fontSize: 16,
@@ -133,11 +137,13 @@ class _BookingViewState extends State<BookingView> {
     );
   }
 
-  Widget buildOfficeListItem(BuildContext context, Datum data) {
+  Widget buildOfficeListItem(BuildContext context, Data data) {
     return InkWell(
       onTap: () {
-      // Navigator.of(context).push(
-      // MaterialPageRoute(builder: (_) => DetailPage(buildingModel: building,)));
+        // Navigator.of(context).push(
+        // MaterialPageRoute(builder: (_) => const ChatPage()));
+        Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => DetailPage(detailModel: id)));
       },
       child: Card(
         color: ColorStyles.cardbestseller,
@@ -146,7 +152,7 @@ class _BookingViewState extends State<BookingView> {
           borderRadius: BorderRadius.circular(5)
         ),
       child: Container(
-        padding: EdgeInsets.all(0),
+        padding: const EdgeInsets.all(0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -154,8 +160,8 @@ class _BookingViewState extends State<BookingView> {
               alignment: Alignment.bottomRight,
               children: [
                 SizedBox(
-                  child: Image.asset(
-                    "${''}",
+                  child: Image.network(
+                    "${data.photoUrls![0].url}",
                     // "${data.photoUrls}",
                     height: 160,
                     width: 260,
@@ -178,7 +184,7 @@ class _BookingViewState extends State<BookingView> {
               "${data.name}",
               maxLines: 2,
               style:
-              TextStyle(
+              const TextStyle(
                 fontSize: 16, 
                 fontFamily: 'avenir',
                 color: ColorStyles.primaryColor, 
@@ -188,7 +194,7 @@ class _BookingViewState extends State<BookingView> {
             const SizedBox(height: 3),
             Text(
               'Rp ${"${data.price}"}/jam',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 color: ColorStyles.primaryColor, 
                 fontFamily: 'avenir')

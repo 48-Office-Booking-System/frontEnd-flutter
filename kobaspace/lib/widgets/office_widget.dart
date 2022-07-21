@@ -31,7 +31,7 @@ class _OfficeViewState extends State<OfficeView> {
             ),
           );
         } else if (state.state == ResultState.hasData) {
-          final List<Datum> office = state.result;
+          final List<Data> office = state.result;
           return SizedBox(
             height: 235,
             child: GridView.builder(
@@ -44,7 +44,7 @@ class _OfficeViewState extends State<OfficeView> {
               itemBuilder: (context, index) {
                 return buildOfficeListItem(context, office[index]);
               },
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(0),
             ),
           );
         } else if (state.state == ResultState.noData) {
@@ -57,7 +57,7 @@ class _OfficeViewState extends State<OfficeView> {
                 ),
                 Text(
                   state.message,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Colors.grey,
@@ -71,7 +71,7 @@ class _OfficeViewState extends State<OfficeView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
+                const Center(
                   child: Text(
                     "No Connection!",
                     style: TextStyle(
@@ -83,7 +83,7 @@ class _OfficeViewState extends State<OfficeView> {
                   ),
                 ),
                 const SizedBox(height: 5),
-                Center(
+                const Center(
                   child: Text(
                     "Please check your connection or try again later.",
                     style: TextStyle(
@@ -96,14 +96,9 @@ class _OfficeViewState extends State<OfficeView> {
                 ),
                 const SizedBox(height: 10),
                 ElevatedButton(
-                  child: const Text(
-                    "Retry", 
-                    style: TextStyle(
-                      color: ColorStyles.blackColor,
-                    ),
-                  ),
+                  child: const Text("Retry"),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.grey,
+                    primary: Colors.white
                   ),
                   onPressed: () {
                     provider.dataList();
@@ -119,7 +114,7 @@ class _OfficeViewState extends State<OfficeView> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 2.5,
                 ),
-                Text(
+                const Text(
                   "Error",
                   style: TextStyle(
                     fontSize: 16,
@@ -135,11 +130,11 @@ class _OfficeViewState extends State<OfficeView> {
     );
   }
 
-  Widget buildOfficeListItem(BuildContext context, Datum data) {
+  Widget buildOfficeListItem(BuildContext context, Data data) {
     return InkWell(
       onTap: () {
       // Navigator.of(context).push(
-      // MaterialPageRoute(builder: (_) => DetailPage(detailModel: building,)));
+      // MaterialPageRoute(builder: (_) => DetailPage(buildingModel: building,)));
       },
       child: Card(
         color: ColorStyles.cardbestseller,
@@ -148,7 +143,7 @@ class _OfficeViewState extends State<OfficeView> {
           borderRadius: BorderRadius.circular(5)
         ),
       child: Container(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         child: Column(
           children: [
             Row(
@@ -157,11 +152,11 @@ class _OfficeViewState extends State<OfficeView> {
                   alignment: Alignment.bottomRight,
                   children: [
                     SizedBox(
-                      child: Image.asset(
-                        "${''}",
+                      child: Image.network(
+                        "${data.photoUrls![0].url}",
                         // "${data.photoUrls}",
-                        height: 130,
-                        width: 150,
+                        height: 200,
+                        width: 160,
                         fit: BoxFit.cover,
                       ),
                     ),

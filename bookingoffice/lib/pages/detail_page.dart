@@ -1,7 +1,19 @@
-import 'package:bookingoffice/components/style.dart';
-import 'package:bookingoffice/models/office_model.dart';
-import 'package:bookingoffice/widgets/review_widget.dart';
+import 'dart:io';
+
+import 'package:map_koba/components/color.dart';
+import 'package:map_koba/maps/mark_buildA.dart';
+import 'package:map_koba/maps/mark_buildB.dart';
+import 'package:map_koba/maps/mark_buildC.dart';
+import 'package:map_koba/maps/mark_buildD.dart';
+import 'package:map_koba/maps/mark_buildE.dart';
+import 'package:map_koba/maps/mark_buildF.dart';
+import 'package:map_koba/model/office_model.dart';
+import 'package:map_koba/pages/chat_page.dart';
+import 'package:map_koba/widgets/detail_widget.dart';
+import 'package:map_koba/widgets/review_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../model/office_model.dart';
 
 class DetailPage extends StatefulWidget {
   final BuildingModel buildingModel;
@@ -21,25 +33,28 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: ColorStyles.searchColor,
-        centerTitle: true,
-        title: Text(
-          widget.buildingModel.name,
-          style: const TextStyle(
-            color: ColorStyles.blackColor,
+          backgroundColor: ColorStyles.searchColor,
+          centerTitle: true,
+          title: Text(
+            widget.buildingModel.name,
+            style: const TextStyle(
+              color: ColorStyles.blackColor,
+            ),
           ),
-        ),
-        actions: [
-          IconButton(
-            color: ColorStyles.textColor,
-            iconSize: 27,
-            onPressed: (){
-            }, 
-            icon: const Icon(Icons.chat)
-          ),
-        ],
-        leading: const BackButton(color: ColorStyles.textColor)
-      ),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.chat),
+              color: ColorStyles.textColor,
+              iconSize: 27,
+              onPressed: () {
+                Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => ChatPage()));
+                // Navigator.of(context).push(MaterialPageRoute(
+                //     builder: (_) => openwhatsapp(widget.buildingModel.nohp)));
+              },
+            ),
+          ],
+          leading: const BackButton(color: ColorStyles.textColor)),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10),
@@ -64,11 +79,10 @@ class _DetailPageState extends State<DetailPage> {
               Text(
                 widget.buildingModel.name,
                 style: const TextStyle(
-                  fontSize: 20, 
-                  fontFamily: 'avenir',
-                  color: ColorStyles.textColor, 
-                  fontWeight: FontWeight.w800
-                ),
+                    fontSize: 20,
+                    fontFamily: 'avenir',
+                    color: ColorStyles.textColor,
+                    fontWeight: FontWeight.w800),
               ),
               const SizedBox(
                 height: 5,
@@ -80,8 +94,7 @@ class _DetailPageState extends State<DetailPage> {
                   color: ColorStyles.cardbestseller,
                   // elevation: 1,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8)
-                  ),
+                      borderRadius: BorderRadius.circular(8)),
                   child: Row(
                     // mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -89,7 +102,7 @@ class _DetailPageState extends State<DetailPage> {
                       IconButton(
                         iconSize: 20,
                         color: ColorStyles.primaryColor,
-                        onPressed: (){}, 
+                        onPressed: () {},
                         icon: const Icon(Icons.person),
                       ),
                       // const SizedBox(width: 2),
@@ -100,9 +113,9 @@ class _DetailPageState extends State<DetailPage> {
                           Text(
                             widget.buildingModel.capacity,
                             style: const TextStyle(
-                              fontSize: 15, 
+                              fontSize: 15,
                               fontFamily: 'avenir',
-                              color: ColorStyles.primaryColor, 
+                              color: ColorStyles.primaryColor,
                               // fontWeight: FontWeight.w800
                             ),
                           ),
@@ -117,7 +130,7 @@ class _DetailPageState extends State<DetailPage> {
               ),
               Row(
                 children: List.generate(
-                  5, 
+                  5,
                   (index) => Icon(
                     Icons.star,
                     color: ColorStyles.ratingColor,
@@ -130,9 +143,9 @@ class _DetailPageState extends State<DetailPage> {
               Text(
                 widget.buildingModel.title,
                 style: const TextStyle(
-                  fontSize: 16, 
+                  fontSize: 16,
                   fontFamily: 'avenir',
-                  color: ColorStyles.blackColor, 
+                  color: ColorStyles.blackColor,
                   // fontWeight: FontWeight.w800
                 ),
               ),
@@ -142,9 +155,9 @@ class _DetailPageState extends State<DetailPage> {
               Text(
                 'Lokasi',
                 style: const TextStyle(
-                  fontSize: 18, 
+                  fontSize: 18,
                   fontFamily: 'avenir',
-                  color: ColorStyles.blackColor, 
+                  color: ColorStyles.blackColor,
                   fontWeight: FontWeight.w800,
                 ),
               ),
@@ -154,11 +167,10 @@ class _DetailPageState extends State<DetailPage> {
               Text(
                 widget.buildingModel.location,
                 style: const TextStyle(
-                  fontSize: 16, 
-                  fontFamily: 'avenir',
-                  color: ColorStyles.searchiconColor, 
-                  fontWeight: FontWeight.w800
-                ),
+                    fontSize: 16,
+                    fontFamily: 'avenir',
+                    color: ColorStyles.searchiconColor,
+                    fontWeight: FontWeight.w800),
               ),
               const SizedBox(
                 height: 5,
@@ -166,21 +178,44 @@ class _DetailPageState extends State<DetailPage> {
               Text(
                 widget.buildingModel.locationdetail,
                 style: const TextStyle(
-                  fontSize: 16, 
+                  fontSize: 16,
                   fontFamily: 'avenir',
-                  color: ColorStyles.searchiconColor, 
+                  color: ColorStyles.searchiconColor,
                   // fontWeight: FontWeight.w800
                 ),
               ),
               const SizedBox(
                 height: 20,
               ),
-              SizedBox(
-                child: Image.asset(
-                  "assets/images/maps.png",
-                  height: 150,
-                  width: 403,
-                  fit: BoxFit.cover,
+              GestureDetector(
+                onTap: () {
+                  if (widget.buildingModel.name == "Building A") {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BuildA()));
+                  } else if (widget.buildingModel.name == "Building B") {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BuildB()));
+                  } else if (widget.buildingModel.name == "Building C") {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BuildC()));
+                  } else if (widget.buildingModel.name == "Building D") {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BuildD()));
+                  } else if (widget.buildingModel.name == "Building E") {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BuildE()));
+                  } else if (widget.buildingModel.name == "Building F") {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BuildF()));
+                  }
+                },
+                child: SizedBox(
+                  child: Image.asset(
+                    "assets/images/maps.png",
+                    height: 150,
+                    width: 403,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               const SizedBox(
@@ -189,9 +224,9 @@ class _DetailPageState extends State<DetailPage> {
               Text(
                 'Ketersediaan',
                 style: const TextStyle(
-                  fontSize: 18, 
+                  fontSize: 18,
                   fontFamily: 'avenir',
-                  color: ColorStyles.blackColor, 
+                  color: ColorStyles.blackColor,
                   fontWeight: FontWeight.w800,
                 ),
               ),
@@ -204,9 +239,9 @@ class _DetailPageState extends State<DetailPage> {
               Text(
                 'Fasilitas',
                 style: const TextStyle(
-                  fontSize: 18, 
+                  fontSize: 18,
                   fontFamily: 'avenir',
-                  color: ColorStyles.blackColor, 
+                  color: ColorStyles.blackColor,
                   fontWeight: FontWeight.w800,
                 ),
               ),
@@ -216,9 +251,9 @@ class _DetailPageState extends State<DetailPage> {
               Text(
                 widget.buildingModel.facility,
                 style: const TextStyle(
-                  fontSize: 16, 
+                  fontSize: 16,
                   fontFamily: 'avenir',
-                  color: ColorStyles.searchiconColor, 
+                  color: ColorStyles.searchiconColor,
                   // fontWeight: FontWeight.w800
                 ),
               ),
@@ -228,9 +263,9 @@ class _DetailPageState extends State<DetailPage> {
               Text(
                 'Review',
                 style: const TextStyle(
-                  fontSize: 18, 
+                  fontSize: 18,
                   fontFamily: 'avenir',
-                  color: ColorStyles.blackColor, 
+                  color: ColorStyles.blackColor,
                   fontWeight: FontWeight.w800,
                 ),
               ),
@@ -238,10 +273,40 @@ class _DetailPageState extends State<DetailPage> {
                 height: 5,
               ),
               ReviewWidget(),
-           ],
+              const SizedBox(
+                height: 5,
+              ),
+              DetailWidget(buildingModel: widget.buildingModel,),
+            ],
           ),
         ),
       ),
     );
   }
+
+  // openwhatsapp(String nohp) async {
+  //   var whatsapp = nohp;
+  //   var whatsappURl_android = "whatsapp://send?phone=" +
+  //       whatsapp +
+  //       "&text= Halo Koba-min^^ ~ \nSaya mau booking (nama build) \nUntuk tanggal (...) jam (...) \nsampai dengan \nTanggal (...) jam (...) \nApakah tersedia ? \nSpill persyaratannya dong min🤗 \nTerima Kasih.  ";
+  //   var whatappURL_ios =
+  //       "https://wa.me/$whatsapp?text=${Uri.parse("Halo , saya mau tanya ...")}";
+  //   if (Platform.isIOS) {
+  //     // for iOS phone only
+  //     if (await canLaunch(whatappURL_ios)) {
+  //       await launch(whatappURL_ios, forceSafariVC: false);
+  //     } else {
+  //       ScaffoldMessenger.of(context)
+  //           .showSnackBar(SnackBar(content: new Text("whatsapp no installed")));
+  //     }
+  //   } else {
+  //     // android , web
+  //     if (await canLaunch(whatsappURl_android)) {
+  //       await launch(whatsappURl_android);
+  //     } else {
+  //       ScaffoldMessenger.of(context)
+  //           .showSnackBar(SnackBar(content: new Text("whatsapp no installed")));
+  //     }
+  //   }
+  // }
 }

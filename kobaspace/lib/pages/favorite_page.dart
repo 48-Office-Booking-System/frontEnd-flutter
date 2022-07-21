@@ -2,14 +2,107 @@ import 'package:flutter/material.dart';
 import 'package:kobaspace/components/result_state.dart';
 import 'package:kobaspace/components/style.dart';
 import 'package:kobaspace/models/list_model.dart';
+import 'package:kobaspace/provider/database_provider.dart';
 import 'package:kobaspace/provider/list_view_model.dart';
 import 'package:kobaspace/services/remote_services.dart';
 import 'package:provider/provider.dart';
 
 class FavoritePage extends StatelessWidget {
-  static const routeName = '/chat_page';
+  static const routeName = '/favorite_page';
 
   const FavoritePage({Key? key}) : super(key: key);
+
+  // Widget buildList(BuildContext context) {
+  //   return Consumer<DatabaseProvider>(
+  //     builder: (context, provider, child) {
+  //       if (provider.state == ResultState.loading) {
+  //         return Center(
+  //           child: Column(
+  //             mainAxisAlignment: MainAxisAlignment.center,
+  //             children: [
+  //               SizedBox(
+  //                 height: MediaQuery.of(context).size.height / 2,
+  //               ),
+  //               const CircularProgressIndicator(
+  //                 color: ColorStyles.secondaryColor,
+  //               ),
+  //             ],
+  //           ),
+  //         );
+  //       } else if (provider.state == ResultState.hasData) {
+  //         return CustomScrollView(
+  //           semanticChildCount: provider.favorites.length,
+  //           slivers: [
+  //             SliverSafeArea(
+  //               sliver: SliverList(
+  //                 delegate: SliverChildBuilderDelegate(
+  //                   (context, index) {
+  //                     if (index < provider.favorites.length) {
+  //                       return RestaurantFavoriteItem(
+  //                         restaurant: provider.favorites[index],
+  //                       );
+  //                     }
+  //                     return null;
+  //                   }
+  //                 ),
+  //               ),
+  //             ),
+  //           ],
+  //         );
+  //       } else if (provider.state == ResultState.noData) {
+  //         return Center(
+  //           child: Text(
+  //             provider.message,
+  //             style: GoogleFonts.roboto(
+  //               fontSize: 16,
+  //               fontWeight: FontWeight.w500,
+  //               color: ColorStyles.tertiaryTextColor,
+  //               decoration: TextDecoration.none,
+  //             ),
+  //           ),
+  //         );
+  //       } else if (provider.state == ResultState.error) {
+  //         return Center(
+  //           child: Column(
+  //             children: [
+  //               SizedBox(
+  //                 height: MediaQuery.of(context).size.height / 2.5,
+  //               ),
+  //               Text(
+  //                 "Error",
+  //                 style: GoogleFonts.roboto(
+  //                   fontSize: 16,
+  //                   fontWeight: FontWeight.w500,
+  //                   color: ColorStyles.tertiaryTextColor,
+  //                   decoration: TextDecoration.none,
+  //                 ),
+  //               ),
+  //             ],
+  //           ),
+  //         );
+  //       } else {
+  //         return Center(
+  //           child: Column(
+  //             children: [
+  //               SizedBox(
+  //                 height: MediaQuery.of(context).size.height / 2.5,
+  //               ),
+  //               Text(
+  //                 "Error",
+  //                 style: GoogleFonts.roboto(
+  //                   fontSize: 16,
+  //                   fontWeight: FontWeight.w500,
+  //                   color: ColorStyles.tertiaryTextColor,
+  //                   decoration: TextDecoration.none,
+  //                 ),
+  //               ),
+  //             ],
+  //           ),
+  //         );
+  //       }
+  //     },
+  //   );
+  // }
 
   Widget buildList(BuildContext context) {
     late ListViewModel provider;
@@ -25,28 +118,22 @@ class FavoritePage extends StatelessWidget {
             ),
           );
         } else if (state.state == ResultState.hasData) {
-          final List<Datum> office = state.result;
+          final List<Data> office = state.result;
           return SizedBox(
-            height: 210,
+            height: 235,
             child: GridView.builder(
               scrollDirection: Axis.horizontal,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 1,
-                mainAxisExtent: 315,
+                mainAxisExtent: 340,
               ),
               itemCount: office.length,
               itemBuilder: (context, index) {
                 return buildOfficeListItem(context, office[index]);
               },
+              padding: const EdgeInsets.all(0),
             ),
           );
-          // final List<Datum> restaurant = state.result;
-          // return ListView.builder(
-          //   itemCount: restaurant.length,
-          //   itemBuilder: (context, index) {
-          //     return buildRestaurantListItem(context, restaurant[index]);
-          //   },
-          // );
         } else if (state.state == ResultState.noData) {
           return Center(
             child: Column(
@@ -130,7 +217,7 @@ class FavoritePage extends StatelessWidget {
     );
   }
 
-  Widget buildOfficeListItem(BuildContext context, Datum data) {
+  Widget buildOfficeListItem(BuildContext context, Data data) {
     return InkWell(
       onTap: () {
       // Navigator.of(context).push(
@@ -152,11 +239,11 @@ class FavoritePage extends StatelessWidget {
                   alignment: Alignment.bottomRight,
                   children: [
                     SizedBox(
-                      child: Image.asset(
-                        "${''}",
+                      child: Image.network(
+                        "${data.photoUrls![0].url}",
                         // "${data.photoUrls}",
-                        height: 130,
-                        width: 150,
+                        height: 200,
+                        width: 160,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -246,11 +333,11 @@ class FavoritePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('Chat Page'),
-      //   centerTitle: true,
-      //   backgroundColor: ColorStyles.secondaryColor,
-      // ),
+      appBar: AppBar(
+        title: const Text('Favorite Page'),
+        centerTitle: true,
+        backgroundColor: ColorStyles.secondaryColor,
+      ),
       body: buildList(context),
     );
   }

@@ -1,11 +1,11 @@
 // import 'package:bookingofficeapp/providers/product_view_model.dart';
-import 'package:bookingoffice/components/style.dart';
-import 'package:bookingoffice/providers/testimoni_view_model.dart';
+import 'package:map_koba/components/color.dart';
+import 'package:map_koba/view_model/testimoni_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class TestimoniView extends StatefulWidget {
-  const TestimoniView({ Key? key }) : super(key: key);
+  const TestimoniView({Key? key}) : super(key: key);
 
   @override
   State<TestimoniView> createState() => _TestimoniViewState();
@@ -28,32 +28,31 @@ class _TestimoniViewState extends State<TestimoniView> {
     // if (viewModel.state == ProductViewState.loading) {
     //   return Center(child: CircularProgressIndicator());
     // }else if (viewModel.state == ProductViewState.loaded) {
-      return SizedBox(
-        height: 265,
-        child: GridView.builder(
-          scrollDirection: Axis.horizontal,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 1,
-            mainAxisExtent: 230,
-          ),
-          // onPageChanged: (index) {
-          //   setState(() {
-          //     currentIndex = index % viewModel.list.length;
-          //   });
-          // },
-          itemCount: viewModel.list.length,
-          itemBuilder: (context, index){
-            final testimoni = viewModel.list[index];
-            return InkWell(
-              onTap: () {
+    return SizedBox(
+      height: 265,
+      child: GridView.builder(
+        scrollDirection: Axis.horizontal,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 1,
+          mainAxisExtent: 230,
+        ),
+        // onPageChanged: (index) {
+        //   setState(() {
+        //     currentIndex = index % viewModel.list.length;
+        //   });
+        // },
+        itemCount: viewModel.list.length,
+        itemBuilder: (context, index) {
+          final testimoni = viewModel.list[index];
+          return InkWell(
+            onTap: () {
               // Navigator.of(context).push(
               // MaterialPageRoute(builder: (_) => DetailPage(buildingModel: building,)));
-              },
-              child: Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5)
-                ),
+            },
+            child: Card(
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5)),
               child: Container(
                 padding: EdgeInsets.all(0),
                 child: Column(
@@ -71,7 +70,7 @@ class _TestimoniViewState extends State<TestimoniView> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: List.generate(
-                        3, 
+                        3,
                         (index) => Icon(
                           Icons.star,
                           color: ColorStyles.ratingColor,
@@ -83,22 +82,19 @@ class _TestimoniViewState extends State<TestimoniView> {
                       "${testimoni.title}",
                       maxLines: 2,
                       textAlign: TextAlign.center,
-                      style:
-                      TextStyle(
-                        fontSize: 14, 
-                        fontFamily: 'avenir',
-                        color: ColorStyles.textColor, 
-                        fontWeight: FontWeight.w800),
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontFamily: 'avenir',
+                          color: ColorStyles.textColor,
+                          fontWeight: FontWeight.w800),
                       // overflow: TextOverflow.ellipsis,
                     ),
                     SizedBox(height: 3),
-                    Text(
-                      '\-${"${testimoni.username}"}-',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: ColorStyles.textColor, 
-                        fontFamily: 'avenir')
-                    ),
+                    Text('\-${"${testimoni.username}"}-',
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: ColorStyles.textColor,
+                            fontFamily: 'avenir')),
                   ],
                 ),
               ),
