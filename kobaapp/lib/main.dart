@@ -1,3 +1,14 @@
+import 'package:map_koba/model/list_model.dart';
+import 'package:map_koba/pages/booking_page.dart';
+import 'package:map_koba/pages/chat_page.dart';
+import 'package:map_koba/pages/detail_page.dart';
+import 'package:map_koba/pages/edit_profile.dart';
+import 'package:map_koba/pages/favorite_page.dart';
+import 'package:map_koba/pages/home_page.dart';
+import 'package:map_koba/pages/profile_page.dart';
+import 'package:map_koba/screens/login_screen.dart';
+import 'package:map_koba/screens/onboarding_screen.dart';
+import 'package:map_koba/screens/signup_screen.dart';
 import 'package:map_koba/screens/splash_screen.dart';
 import 'package:map_koba/services/remote_services.dart';
 import 'package:map_koba/view_model/koba_view_model.dart';
@@ -35,6 +46,21 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: SplashScreen(),
+        // initialRoute: SplashScreen.routeName,
+        // routes: {
+        //   HomePage.routeName: (context) => HomePage(),
+        //   BookingPage.routeName: (context) => const BookingPage(),
+        //   ChatPage.routeName: (context) => const ChatPage(),
+        //   DetailPage.routeName: (context) => DetailPage(
+        //       listData: ModalRoute.of(context)?.settings.arguments as Datum
+        //   ),
+        //   EditProfilePage.routeName: (context) => const EditProfilePage(),
+        //   ProfilePage.routeName: (context) => const ProfilePage(),
+        //   FavoritePage.routeName: (context) => const FavoritePage(),
+        //   LoginScreen.routeName: (context) => LoginScreen(),
+        //   OnboardingScreen.routeName: (context) => OnboardingScreen(),
+        //   SignUpScreen.routeName: (context) => SignUpScreen(),
+        // },
       ),
     );
   }

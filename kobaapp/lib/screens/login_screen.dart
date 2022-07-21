@@ -1,10 +1,10 @@
 import 'package:map_koba/components/bottom_navigation.dart';
-import 'package:map_koba/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:map_koba/screens/signup_screen.dart';
-import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const routeName = '/login_screen';
+
   @override
   State<StatefulWidget> createState() => StartState();
 }

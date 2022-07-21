@@ -4,6 +4,8 @@ import 'package:map_koba/widgets/filters_booking_widget.dart';
 import 'package:flutter/material.dart';
 
 class BookingPage extends StatefulWidget {
+  static const routeName = '/booking_page';
+
   const BookingPage({Key? key}) : super(key: key);
 
   @override

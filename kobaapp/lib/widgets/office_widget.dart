@@ -31,7 +31,7 @@ class _OfficeViewState extends State<OfficeView> {
             ),
           );
         } else if (state.state == ResultState.hasData) {
-          final List<Data> office = state.result;
+          final List<Datum> office = state.result;
           return SizedBox(
             height: 235,
             child: GridView.builder(
@@ -130,7 +130,7 @@ class _OfficeViewState extends State<OfficeView> {
     );
   }
 
-  Widget buildOfficeListItem(BuildContext context, Data data) {
+  Widget buildOfficeListItem(BuildContext context, Datum data) {
     return InkWell(
       onTap: () {
       // Navigator.of(context).push(

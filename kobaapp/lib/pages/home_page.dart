@@ -7,7 +7,7 @@ import 'package:map_koba/widgets/testimoni_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  static const route = "/home";
+  static const routeName = "/home_page";
 
   @override
   _HomePageState createState() => _HomePageState();

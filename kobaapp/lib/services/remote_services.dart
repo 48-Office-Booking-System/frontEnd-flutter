@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:map_koba/model/detail_model.dart';
 import 'package:map_koba/model/list_model.dart';
 import 'package:map_koba/model/review_model.dart';
 
@@ -16,14 +17,14 @@ class RemoteServices {
     }
   }
 
-  // Future<DetailModel> dataDetail(int id) async {
-  //   final response = await http.get(Uri.parse('$baseURL/$id'));
-  //   if (response.statusCode == 200) {
-  //     return DetailModel.fromJson(json.decode(response.body));
-  //   } else {
-  //     throw Exception('Failed to load list');
-  //   }
-  // }
+  Future<DetailModel> dataDetail(int id) async {
+    final response = await http.get(Uri.parse('$baseURL/$id'));
+    if (response.statusCode == 200) {
+      return DetailModel.fromJson(json.decode(response.body));
+    } else {
+      throw Exception('Failed to load list');
+    }
+  }
 
   Future<ReviewModel> dataReview() async {
     final response = await http.get(Uri.parse('$reviewBaseURL/all'));

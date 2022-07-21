@@ -1,5 +1,4 @@
 import 'package:map_koba/components/color.dart';
-import 'package:map_koba/model/User/getAllUser_model.dart';
 import 'package:map_koba/pages/edit_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,6 +7,8 @@ import 'package:map_koba/view_model/koba_view_model.dart';
 import 'package:provider/provider.dart';
 
 class ProfilePage extends StatefulWidget {
+  static const routeName = '/profile_page';
+
   const ProfilePage({Key? key}) : super(key: key);
 
   @override

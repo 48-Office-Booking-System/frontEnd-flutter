@@ -1,82 +1,100 @@
 import 'package:flutter/material.dart';
-import 'package:map_koba/components/color.dart';
-import 'package:map_koba/model/office_model.dart';
-import 'package:map_koba/pages/chat_page.dart';
-import 'package:map_koba/view_model/office_view_model.dart';
+import 'package:map_koba/model/detail_model.dart';
+import 'package:map_koba/model/list_model.dart';
+import 'package:map_koba/view_model/detail_view_model.dart';
 import 'package:provider/provider.dart';
 
-class DetailWidget extends StatefulWidget {
-  final BuildingModel buildingModel;
+class DataWidget extends StatelessWidget {
+  final Data detailData;
+  final DetailViewModel providers;
+  final Datum listData;
 
-  const DetailWidget({Key? key, required this.buildingModel}) : super(key: key);
-
-  @override
-  State<DetailWidget> createState() => _DetailWidgetState();
-}
-
-class _DetailWidgetState extends State<DetailWidget> {
-  @override
-  Widget body(OfficeViewModel viewModel) { {
-    return SizedBox(
-      height: 80,
-        child: Card(
-          color: ColorStyles.secondaryColor,
-          elevation: 5,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5)),
-          child: Container(
-            padding: EdgeInsets.all(12),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      "Rp.${widget.buildingModel.price.toString()} x 1",
-                      // widget.buildingModel.price.toString(),
-                      maxLines: 2,
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: 'avenir',
-                          color: ColorStyles.primaryColor,
-                          fontWeight: FontWeight.w800),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    const SizedBox(width: 20),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Center(
-                            child: ElevatedButton(
-                              onPressed: () {
-                                Navigator.of(context)
-                                  .push(MaterialPageRoute(builder: (_) => ChatPage()));
-                              },
-                              child: const Text("Pesan",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      color: ColorStyles.searchColor,
-                                      fontFamily: 'avenir')),
-                              style: ElevatedButton.styleFrom(
-                                  fixedSize: const Size(200, 35),
-                                  primary: ColorStyles.textColor),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-      );
-    }
-  }
+  const DataWidget({Key? key, required this.detailData, required this.providers, required this.listData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    OfficeViewModel viewModel = Provider.of<OfficeViewModel>(context);
-    return body(viewModel);
+    return Consumer(
+        builder: (context, provider, child) {
+          return Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: Text(
+                        "${listData.name}",
+                        // listData.name,
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black54,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Text(
+                      "${listData.description}",
+                      // listData.description,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black54,
+                      ),
+                    ),
+                    Text(
+                      "latitude : ${listData.latitude}",
+                      // 'latitude : ' + listData.latitude,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black54,
+                      ),
+                    ),
+                    Text(
+                      "latitude : ${listData.longitude}",
+                      // 'longitude : ' + listData.longitude,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black54,
+                      ),
+                    ),
+                    Text(
+                      "view count : ${listData.viewCount.toString()}",
+                      // 'view count : ' + listData.viewCount.toString(),
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black54,
+                      ),
+                    ),
+                    // Text(
+                    //   'price : ' + listData.price.toString(),
+                    //   style: TextStyle(
+                    //     fontSize: 14,
+                    //     color: Colors.black54,
+                    //   ),
+                    // ),
+                    // Text(
+                    //   'chair min : ' + listData.chairMin.toString(),
+                    //   style: TextStyle(
+                    //     fontSize: 14,
+                    //     color: Colors.black54,
+                    //   ),
+                    // ),
+                    // Text(
+                    //   'chair max : ' + listData.chairMax.toString(),
+                    //   style: TextStyle(
+                    //     fontSize: 14,
+                    //     color: Colors.black54,
+                    //   ),
+                    // ),
+                  ],
+                ),
+              ),
+            ],
+          );
+        });
   }
 }

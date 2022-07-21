@@ -4,6 +4,8 @@ import 'package:map_koba/components/style.dart';
 import 'login_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
+  static const routeName = '/onboarding_screen';
+
   @override
   _OnboardingScreenState createState() => _OnboardingScreenState();
 }

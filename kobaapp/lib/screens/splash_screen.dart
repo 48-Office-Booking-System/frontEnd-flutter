@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:map_koba/components/bottom_navigation.dart';
 import 'package:map_koba/pages/home_page.dart';
-import 'package:map_koba/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:map_koba/components/bottom_navigation.dart';
 import 'package:map_koba/screens/onboarding_screen.dart';
@@ -13,6 +12,8 @@ void main() {
 }
 
 class SplashScreen extends StatefulWidget {
+  static const routeName = '/splash_screen';
+
   @override
   State<StatefulWidget> createState() => StartState();
 }

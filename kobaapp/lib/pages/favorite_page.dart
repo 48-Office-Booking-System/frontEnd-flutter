@@ -1,11 +1,9 @@
 import 'package:map_koba/components/color.dart';
 import 'package:flutter/material.dart';
-import 'package:map_koba/model/office_model.dart';
-import 'package:map_koba/view_model/office_view_model.dart';
-import 'package:map_koba/view_model/review_view_model.dart';
-import 'package:provider/provider.dart';
 
 class FavoritePage extends StatefulWidget {
+  static const routeName = '/favorite_page';
+
   const FavoritePage({Key? key}) : super(key: key);
 
   @override

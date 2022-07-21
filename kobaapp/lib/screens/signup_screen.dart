@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
+  static const routeName = '/signup_screen';
+
   @override
   State<StatefulWidget> createState() => InitState();
 }

@@ -1,7 +1,7 @@
 class ListModel {
   int? code;
   String? message;
-  List<Data>? data;
+  List<Datum>? data;
 
   ListModel({this.code, this.message, this.data});
 
@@ -9,9 +9,9 @@ class ListModel {
     code = json['code'];
     message = json['message'];
     if (json['data'] != null) {
-      data = <Data>[];
+      data = <Datum>[];
       json['data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
+        data!.add(new Datum.fromJson(v));
       });
     }
   }
@@ -27,7 +27,7 @@ class ListModel {
   }
 }
 
-class Data {
+class Datum {
   int? id;
   int? typeId;
   Type? type;
@@ -45,7 +45,7 @@ class Data {
   // List<Tags>? tags;
   List<Reviews>? reviews;
 
-  Data(
+  Datum(
       {this.id,
       this.typeId,
       this.type,
@@ -63,7 +63,7 @@ class Data {
       // this.tags,
       this.reviews});
 
-  Data.fromJson(Map<String, dynamic> json) {
+  Datum.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     typeId = json['type_id'];
     type = json['type'] != null ? new Type.fromJson(json['type']) : null;

@@ -2,6 +2,8 @@ import 'package:map_koba/components/color.dart';
 import 'package:flutter/material.dart';
 
 class EditProfilePage extends StatefulWidget {
+  static const routeName = '/edit_profile_page';
+
   const EditProfilePage({Key? key}) : super(key: key);
 
   @override

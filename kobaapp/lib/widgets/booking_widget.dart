@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:map_koba/components/color.dart';
 import 'package:map_koba/components/result_state.dart';
 import 'package:map_koba/model/list_model.dart';
+import 'package:map_koba/pages/detail_page.dart';
 import 'package:map_koba/services/remote_services.dart';
 import 'package:map_koba/view_model/list_view_model.dart';
 import 'package:provider/provider.dart';
@@ -31,7 +32,7 @@ class _BookingViewState extends State<BookingView> {
             ),
           );
         } else if (state.state == ResultState.hasData) {
-          final List<Data> office = state.result;
+          final List<Datum> office = state.result;
           return SizedBox(
             height: 540,
             child: GridView.builder(
@@ -135,13 +136,10 @@ class _BookingViewState extends State<BookingView> {
     );
   }
 
-  Widget buildOfficeListItem(BuildContext context, Data data) {
+  Widget buildOfficeListItem(BuildContext context, Datum data) {
     return InkWell(
       onTap: () {
-        // Navigator.of(context).push(
-        // MaterialPageRoute(builder: (_) => const ChatPage()));
-        // Navigator.of(context).push(
-        // MaterialPageRoute(builder: (_) => DetailPage(detailModel: id)));
+        Navigator.pushNamed(context, DetailPage.routeName, arguments: data);
       },
       child: Card(
         color: ColorStyles.cardbestseller,
