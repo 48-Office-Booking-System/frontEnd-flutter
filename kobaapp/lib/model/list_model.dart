@@ -43,7 +43,7 @@ class Datum {
   String? number;
   // List<Facilitations>? facilitations;
   // List<Tags>? tags;
-  // List<Reviews>? reviews;
+  List<Reviews>? reviews;
 
   Datum(
       {this.id,
@@ -61,9 +61,7 @@ class Datum {
       this.number,
       // this.facilitations,
       // this.tags,
-      // this.reviews
-      }
-    );
+      this.reviews});
 
   Datum.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -96,12 +94,12 @@ class Datum {
     //     tags!.add(new Tags.fromJson(v));
     //   });
     // }
-    // if (json['reviews'] != null) {
-    //   reviews = <Reviews>[];
-    //   json['reviews'].forEach((v) {
-    //     reviews!.add(new Reviews.fromJson(v));
-    //   });
-    // }
+    if (json['reviews'] != null) {
+      reviews = <Reviews>[];
+      json['reviews'].forEach((v) {
+        reviews!.add(new Reviews.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -119,9 +117,9 @@ class Datum {
     data['price'] = this.price;
     data['chair_min'] = this.chairMin;
     data['chair_max'] = this.chairMax;
-    // if (this.photoUrls != null) {
-    //   data['photo_urls'] = this.photoUrls!.map((v) => v.toJson()).toList();
-    // }
+    if (this.photoUrls != null) {
+      data['photo_urls'] = this.photoUrls!.map((v) => v.toJson()).toList();
+    }
     data['number'] = this.number;
     // if (this.facilitations != null) {
     //   data['facilitations'] =
@@ -130,9 +128,9 @@ class Datum {
     // if (this.tags != null) {
     //   data['tags'] = this.tags!.map((v) => v.toJson()).toList();
     // }
-    // if (this.reviews != null) {
-    //   data['reviews'] = this.reviews!.map((v) => v.toJson()).toList();
-    // }
+    if (this.reviews != null) {
+      data['reviews'] = this.reviews!.map((v) => v.toJson()).toList();
+    }
     return data;
   }
 }

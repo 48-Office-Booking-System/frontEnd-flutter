@@ -134,7 +134,7 @@ class _OfficeViewState extends State<OfficeView> {
   Widget buildOfficeListItem(BuildContext context, Datum data) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context,DetailPage.routeName,arguments: data.id,);
+        Navigator.pushNamed(context, DetailPage.routeName, arguments: data.id);
       },
       child: Card(
         color: ColorStyles.cardbestseller,
@@ -154,6 +154,7 @@ class _OfficeViewState extends State<OfficeView> {
                     SizedBox(
                       child: Image.network(
                         "${data.photoUrls![0].url}",
+                        // "${data.photoUrls}",
                         height: 200,
                         width: 160,
                         fit: BoxFit.cover,
@@ -199,7 +200,7 @@ class _OfficeViewState extends State<OfficeView> {
                       ),
                       SizedBox(height: 3),
                       Text(
-                        "${data.chairMax} orang",
+                        '${data.chairMin} - ${data.chairMax} /orang',
                         maxLines: 2,
                         style:
                         TextStyle(

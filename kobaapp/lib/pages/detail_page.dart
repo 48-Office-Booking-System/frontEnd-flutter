@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:map_koba/components/color.dart';
 import 'package:map_koba/components/result_state.dart';
 import 'package:map_koba/model/list_model.dart';
+import 'package:map_koba/pages/chat_page.dart';
 import 'package:map_koba/services/remote_services.dart';
 import 'package:map_koba/view_model/detail_view_model.dart';
 import 'package:map_koba/widgets/detail_widget.dart';
@@ -9,20 +11,40 @@ import 'package:provider/provider.dart';
 class DetailPage extends StatelessWidget {
   static const routeName = '/detail_page';
 
-  final Datum listData;
+  final int id;
 
-  const DetailPage({Key? key, required this.listData, required int id}) : super(key: key);
+  const DetailPage({required this.id});
 
   @override
   Widget build(BuildContext context) {
-    DetailViewModel provider;
+    late DetailViewModel provider;
 
-    return ChangeNotifierProvider<DetailViewModel>(
-      create: (_) => DetailViewModel(remoteServices: RemoteServices(), id: listData.id!),
+    return ChangeNotifierProvider(
+      create: (_) => DetailViewModel(remoteServices: RemoteServices(), id: id),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(listData.name!),
+          backgroundColor: ColorStyles.searchColor,
+          centerTitle: true,
+          title: Text(
+            "Detail",
+            style: const TextStyle(
+              color: ColorStyles.blackColor,
+          ),
         ),
+        actions: [
+            IconButton(
+              icon: const Icon(Icons.chat),
+              color: ColorStyles.textColor,
+              iconSize: 27,
+              onPressed: () {
+                Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => ChatPage()));
+                // Navigator.of(context).push(MaterialPageRoute(
+                //     builder: (_) => openwhatsapp(widget.buildingModel.nohp)));
+              },
+            ),
+          ],
+          leading: const BackButton(color: ColorStyles.textColor)),
         body: SingleChildScrollView(
           child: Consumer<DetailViewModel>(
             builder: (context, state, _) {
@@ -49,7 +71,6 @@ class DetailPage extends StatelessWidget {
                     DataWidget(
                       detailData: detailData,
                       providers: provider,
-                      listData: listData,
                     ),
                   ],
                 );
@@ -126,6 +147,7 @@ class DetailPage extends StatelessWidget {
           ),
         ),
       )
+
     );
   }
 }

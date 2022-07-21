@@ -1,4 +1,3 @@
-import 'package:map_koba/model/list_model.dart';
 import 'package:map_koba/pages/booking_page.dart';
 import 'package:map_koba/pages/chat_page.dart';
 import 'package:map_koba/pages/detail_page.dart';
@@ -69,7 +68,7 @@ class MyApp extends StatelessWidget {
             case DetailPage.routeName:
               final id = settings.arguments as int;
               return MaterialPageRoute(
-                builder: (_) => DetailPage(id: id, listData: ModalRoute.of(context)?.settings.arguments as Datum,),
+                builder: (_) => DetailPage(id: id),
                 settings: settings,
               );
             default:
