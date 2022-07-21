@@ -41,8 +41,8 @@ class Data {
   int? chairMax;
   List<PhotoUrls>? photoUrls;
   String? number;
-  List<Facilitations>? facilitations;
-  List<Tags>? tags;
+  // List<Facilitations>? facilitations;
+  // List<Tags>? tags;
   List<Reviews>? reviews;
 
   Data(
@@ -59,8 +59,8 @@ class Data {
       this.chairMax,
       this.photoUrls,
       this.number,
-      this.facilitations,
-      this.tags,
+      // this.facilitations,
+      // this.tags,
       this.reviews});
 
   Data.fromJson(Map<String, dynamic> json) {
@@ -82,18 +82,18 @@ class Data {
       });
     }
     number = json['number'];
-    if (json['facilitations'] != null) {
-      facilitations = <Facilitations>[];
-      json['facilitations'].forEach((v) {
-        facilitations!.add(new Facilitations.fromJson(v));
-      });
-    }
-    if (json['tags'] != null) {
-      tags = <Tags>[];
-      json['tags'].forEach((v) {
-        tags!.add(new Tags.fromJson(v));
-      });
-    }
+    // if (json['facilitations'] != null) {
+    //   facilitations = <Facilitations>[];
+    //   json['facilitations'].forEach((v) {
+    //     facilitations!.add(new Facilitations.fromJson(v));
+    //   });
+    // }
+    // if (json['tags'] != null) {
+    //   tags = <Tags>[];
+    //   json['tags'].forEach((v) {
+    //     tags!.add(new Tags.fromJson(v));
+    //   });
+    // }
     if (json['reviews'] != null) {
       reviews = <Reviews>[];
       json['reviews'].forEach((v) {
@@ -121,30 +121,18 @@ class Data {
       data['photo_urls'] = this.photoUrls!.map((v) => v.toJson()).toList();
     }
     data['number'] = this.number;
-    if (this.facilitations != null) {
-      data['facilitations'] =
-          facilitations!.map((v) => v.toJson()).toList();
-    }
-    if (this.tags != null) {
-      data['tags'] = tags!.map((v) => v.toJson()).toList();
-    }
+    // if (this.facilitations != null) {
+    //   data['facilitations'] =
+    //       this.facilitations!.map((v) => v.toJson()).toList();
+    // }
+    // if (this.tags != null) {
+    //   data['tags'] = this.tags!.map((v) => v.toJson()).toList();
+    // }
     if (this.reviews != null) {
       data['reviews'] = this.reviews!.map((v) => v.toJson()).toList();
     }
     return data;
   }
-}
-
-class Tags {
-  Tags.fromJson(v);
-
-  toJson() {}
-}
-
-class Facilitations {
-  Facilitations.fromJson(v);
-
-  toJson() {}
 }
 
 class Type {
